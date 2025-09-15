@@ -1,0 +1,1 @@
+// Que no existan caracteres inválidos

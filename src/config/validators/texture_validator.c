@@ -1,0 +1,1 @@
+// Comprueba que las rutas de texturas son válidas

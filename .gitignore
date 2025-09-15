@@ -1,0 +1,38 @@
+# Archivos binarios
+minishell
+*.o
+*.a
+*.so
+
+# Carpetas intermedias
+obj/
+
+# Archivos de respaldo o temporales
+*~
+*.swp
+*.tmp
+*.log
+
+# Archivos de readline
+.history
+
+# Archivos del entorno
+.vscode/
+*.code-workspace
+
+# Archivos de MacOS
+.DS_Store
+
+# Archivos de GDB/debug
+.gdb_history
+.gdbinit
+
+# Librería libft
+libft/libft.a
+
+# Archivos generados por Makefile
+*.out
+
+# Evita subir archivos ocultos de shell
+.env
+.idea
