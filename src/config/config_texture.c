@@ -12,7 +12,7 @@ t_texture	parse_texture_type(const char *id)
 	return (TEX_EA);
 }
 
-bool	texture_config(t_config *config, char *line, int *config_count)
+bool	texture_config(t_config *config, const char *line)
 {
 	int		tex_argc;
 	char	**tex_argv;
@@ -25,7 +25,6 @@ bool	texture_config(t_config *config, char *line, int *config_count)
 		return (false);
 	}
 	config->textures[parse_texture_type(tex_argv[0])] = ft_strdup(tex_argv[1]);
-	(*config_count)++;
 	ft_free_split(&tex_argv);
 	return (true);
 }

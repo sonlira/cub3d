@@ -17,7 +17,7 @@ static bool	is_valid_texture_file(char *tex_file)
 {
 	return (is_valid_extension(tex_file, ".xpm")
 		&& is_file_openable(tex_file)
-		&& is_empty_file(tex_file));
+		&& !is_empty_file(tex_file));
 }
 
 static bool	is_duplicate_texture(t_config *config, t_texture type)
