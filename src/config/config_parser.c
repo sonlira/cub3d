@@ -1,162 +1,80 @@
+
 #include "cub3d.h"
 
-t_config	*create_t_config(void)
+static t_config	*t_config_create(void)
 {
 	t_config	*config;
 
 	config = ft_calloc(1, sizeof(t_config));
 	if (!config)
 		return (NULL);
-	config->floor_color = -1;
-	config->ceiling_color = -1;
+	ft_memset(config->ceiling_rgb, RGB_UNSET, sizeof(config->ceiling_rgb));
+	ft_memset(config->floor_rgb, RGB_UNSET, sizeof(config->floor_rgb));
+	config->floor_color = RGB_UNSET;
+	config->ceiling_color = RGB_UNSET;
 	return (config);
 }
 
-t_texture	get_type_texture(char *id)
+static int	get_first_word_length(const char *str)
 {
-	if (!ft_strcmp(id, "NO"))
-		return (NO);
-	if (!ft_strcmp(id, "SO"))
-		return (SO);
-	if (!ft_strcmp(id, "WE"))
-		return (WE);
-	return (EA);
-}
+	int		length;
 
-bool	is_valid_id(char *id)
-{
-	if (ft_strcmp(id, "NO") && ft_strcmp(id, "SO") && \
-		ft_strcmp(id, "WE") && ft_strcmp(id, "EA"))
+	length = 0;
+	while (ft_isspace(*str))
+		str++;
+	while (*str && !ft_isspace(*str))
 	{
-		ft_eprintf("El identificador de textura no es valido.\n");
-		return (false);
+		length++;
+		str++;
 	}
-	return (true);
+	return (length);
 }
 
-bool	is_not_diplicate(t_config *config, t_texture type)
+static bool	parse_config_line(t_config *config, const char *line)
 {
-	if (config->textures[type])
-	{
-		ft_eprintf("Hay configuraciones repetidas.\n");
-		return (false);
-	}
-	return (true);
+	int	lenght;
+
+	lenght = get_first_word_length(line);
+	if (lenght > TEXTURE_ID_LEN)
+		return (show_error_message(ERR_CONFIG_UNKNOWN));
+	if (lenght == LINE_EMPTY)
+		return (true);
+	if (lenght == COLOR_ID_LEN)
+		return (color_config(config, line));
+	return (texture_config(config, line));
 }
 
-bool	texture_config(t_config *config, char *line, int *config_count)
-{
-	int		fd;
-	int		argc;
-	char	**argv;
-
-	argv = ft_split(line, ' ');
-	argc = ft_count_elements(argv);
-	if (!is_valid_argument(argc, argv, false))
-		return (ft_free_split(&argv), false);
-	else if (!is_valid_id(argv[0]))
-		return (ft_free_split(&argv), false);
-	else if (!is_valid_file(argv[1], &fd, ".xpm", false))
-		return (ft_free_split(&argv), false);
-	else if (!is_not_duplicate(config, get_type_texture(argv[0])))
-		return (ft_free_split(&argv), false);
-	config->textures[get_type_texture(argv[0])] = ft_strdup(argv[1]);
-	(*config_count)++;
-	ft_free_split(&argv);
-	return (true);
-}
-
-bool	parse_color(int rgb[3], char *line)
-{
-	int current_value;
-	int number_count;
-	int	coma_count;
-	int i;
-
-	while (line[i] == ' ')
-		i++;
-	// while ()o
-	
-}
-
-bool	color_config(t_config *config, char *line, int *config_count)
-{
-	char	id;
-	int		start;
-
-	start = 0;
-	while (line[start] == ' ')
-		start++;
-	id = line[start];
-	if (id != 'F' && id != 'C')
-		return (false);
-	if (id == 'F' && !parse_color(config->floor_rgb, line++))
-		return (false);
-	else if (!parse_color(config->ceiling_rgb, line++))
-		return (false);
-	return (true);
-}
-
-void	process_line(t_config *config, char *line, int *config_count)
-{
-	int		start;
-	int		end;
-
-	start = 0;
-	while (line[start] == ' ')
-		start++;
-	end = start;
-	while (line[end] && line[end] != ' ')
-		end++;
-	if (end - start == 0)
-		return ;
-	else if (end - start == 1)
-		color_config(config, line, config_count);
-	else if (end - start == 2)
-		texture_config(config, line, config_count);
-	else
-	{
-		free(config);
-		error_exit("Identificador de configuracion no valido.");
-	}
-
-}
-
-void	process_file(t_config *config, int fd, int *config_count)
+static bool	parse_config_file(t_config *config, unsigned int fd)
 {
 	char	*line;
 
-	while (true)
+	while (!config_is_complete(config))
 	{
 		line = get_next_line(fd);
-		if (!line || config_count == 5)
-			break ;
-		process_line(config, line, config_count);
+		if (!line)
+			return (show_error_message(ERR_CONFIG_INCOMPLETE));
+		line[(ft_strlen(line) - 1)] = '\0';
+		if (!parse_config_line(config, line))
+		{
+			free(line);
+			return (false);
+		}
 		free(line);
 	}
+	return (true);
 }
 
-void	init_config_parser(t_game *game, int file_fd)
+void	config_parser(t_game *game, unsigned int file_fd)
 {
 	t_config	*config;
-	int			config_count;
 
-	config_count = 0;
-	config = create_t_config();
-	process_file(config, file_fd, &config_count);
-	if (config_count != 5)
+	config = t_config_create();
+	if (!config)
+		exit_with_error_message(ERR_ALLOC);
+	if (!parse_config_file(config, file_fd))
 	{
 		free(config);
-		error_exit("El fichero esta vacio o faltan datos.\n");
+		exit(EXIT_FAILURE);
 	}
 	game->cfg = config;
-}
-
-void	start_parser(t_game *game, int argc, char **argv)
-{
-	int	fd;
-
-	is_valid_argument(argc, argv, true);
-	is_valid_file(argv[1], &fd, ".cub", true);
-	init_config_parser(game, fd);
 }

@@ -15,8 +15,7 @@ bool	is_file_openable(const char *file)
 {
 	int	fd;
 
-	fd = open(file, O_RDONLY);
-	if (fd < 0)
+	if (!open_file(file, &fd))
 		return (false);
 	close(fd);
 	return (true);
