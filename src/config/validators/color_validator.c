@@ -1,6 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   color_validator.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/21 15:31:27 by abaldelo          #+#    #+#             */
+/*   Updated: 2025/09/21 15:31:35 by abaldelo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "cub3d.h"
-// Comprueba que F y C están bien definidos
 
 bool	is_valid_component(int component)
 {

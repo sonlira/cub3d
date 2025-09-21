@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/21 15:29:13 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/09/21 15:29:18 by abaldelo         ###   ########.fr       */
+/*   Created: 2025/09/21 15:29:28 by abaldelo          #+#    #+#             */
+/*   Updated: 2025/09/21 15:29:33 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	main(int argc, char **argv)
+bool	open_file(const char *file, int *fd)
 {
-	t_game	game;
-	int		fd;
-
-	requiere_valid_program_args(argc, argv);
-	requiere_valid_file(argv[1]);
-	open_file(argv[1], &fd);
-	config_parser(&game, fd);
-	// map_loader(&game, fd);
-	return (0);
+	*fd = open(file, O_RDONLY);
+	if (*fd < 0)
+		return (false);
+	return (true);
 }
+
+void	exit_with_error_message(const char *message)
+{
+	ft_eprintf("Error\n");
+	ft_eprintf(message);
+	exit(EXIT_FAILURE);
+}
+
+bool	show_error_message(const char *message)
+{
+	ft_eprintf("Error\n");
+	ft_eprintf(message);
+	return (false);
+}
+// void	error_exit_and_free();
