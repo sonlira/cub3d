@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:51:38 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/09/21 15:38:19 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/09/22 13:19:37 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@
 # include "types.h"
 # include "utils.h"
 # include "config_parser.h"
+# include "map_parser.h"
 
 #endif
