@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 18:56:39 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/06/16 21:16:13 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/09/30 13:59:19 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,13 @@ typedef struct s_fmtbuf
 	size_t	it;
 	int		len;
 }	t_fmtbuf;
+
+typedef struct s_iterator
+{
+	size_t	i;
+	size_t	j;
+	size_t	k;
+}	t_iterator;
 
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
@@ -91,5 +98,11 @@ void		ft_puthex_sn(t_fmtbuf *fmt, unsigned long long num, char base);
 void		ft_putchar_sn(t_fmtbuf *fmt, int c);
 void		ft_putstr_sn(t_fmtbuf *fmt, char *str);
 size_t		ft_count_words(char const *s, char c);
+bool		array_push(char ***array, const char *value);
+bool		array_unshift(char ***array, const char *value);
+bool		dup_str_array_into(char ***dst, char **orig);
+bool		create_matrix(int ***matrix, size_t rows, size_t cols);
+void		free_matrix(int ***matrix, size_t size);
+void		init_iterator(t_iterator *it);
 
 #endif
