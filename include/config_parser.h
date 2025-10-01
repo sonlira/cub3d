@@ -6,99 +6,12 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:21:12 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/09/21 15:16:23 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/10/01 19:17:54 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONFIG_PARSER_H
 # define CONFIG_PARSER_H
-
-/* ************************************************************************** */
-/*                           VALIDACIÓN DE ARGUMENTOS                         */
-/* ************************************************************************** */
-
-/**
- * @brief Verifica que los argumentos pasados al programa sean válidos.
- * 
- * Comprueba que la cantidad de argumentos y su validez sean correctos.
- * Si alguna validación falla, la función muestra un mensaje de error
- * y finaliza el programa con exit(EXIT_FAILURE).
- * 
- * @param argc Número de argumentos recibidos.
- * @param argv Lista de argumentos recibidos.
- */
-void	requiere_valid_program_args(int argc, char **argv);
-
-/**
- * @brief Comprueba si la cantidad de argumentos es la esperada.
- * 
- * No muestra mensajes de error, solo devuelve el resultado de la validación.
- * 
- * @param argc Número de argumentos recibidos.
- * @return true si la cantidad es válida, false en caso contrario.
- */
-bool	is_valid_argc(int argc);
-
-/**
- * @brief Comprueba si los argumentos recibidos son válidos.
- * 
- * No muestra mensajes de error, solo devuelve el resultado de la validación.
- * 
- * @param argc Número de argumentos recibidos.
- * @param args Lista de argumentos recibidos.
- * @return true si los argumentos son válidos, false en caso contrario.
- */
-bool	is_valid_args(int argc, char **args);
-
-/* ************************************************************************** */
-/*                           VALIDACIÓN DE ARCHIVOS                           */
-/* ************************************************************************** */
-
-/**
- * @brief Verifica que un archivo de configuración sea válido.
- * 
- * Comprueba que:
- * - Tenga la extensión correcta (ej: ".cub").
- * - Se pueda abrir en modo lectura.
- * - No esté vacío.
- * 
- * Si alguna validación falla, la función muestra un mensaje de error
- * y finaliza el programa con exit(EXIT_FAILURE).
- * 
- * @param file Ruta del archivo a validar.
- */
-void	requiere_valid_file(const char *file);
-
-/**
- * @brief Comprueba si la extensión de un archivo es válida.
- * 
- * No muestra mensajes de error, solo devuelve el resultado de la validación.
- * 
- * @param file_path Ruta del archivo.
- * @param file_extension Extensión esperada (ej: ".cub").
- * @return true si la extensión coincide, false en caso contrario.
- */
-bool	is_valid_extension(const char *file_path, const char *file_extension);
-
-/**
- * @brief Verifica si un archivo se puede abrir en modo lectura.
- * 
- * No muestra mensajes de error, solo devuelve el resultado de la validación.
- * 
- * @param file Ruta del archivo.
- * @return true si el archivo se puede abrir, false en caso contrario.
- */
-bool	is_file_openable(const char *file);
-
-/**
- * @brief Verifica si un archivo está vacío.
- * 
- * No muestra mensajes de error, solo devuelve el resultado de la validación.
- * 
- * @param file Ruta del archivo.
- * @return true si el archivo está vacío, false si contiene datos.
- */
-bool	is_empty_file(const char *file);
 
 /* ************************************************************************** */
 /*                           PARSER DE CONFIGURACIÓN                          */

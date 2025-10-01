@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:41:39 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/09/21 15:38:53 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/10/01 14:10:30 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,25 @@ typedef struct s_map
 	int		cols; /**< Número total de columnas en el mapa. */
 }	t_map;
 
+/**
+ * @struct s_player
+ * @brief Representa al jugador dentro del mapa.
+ * 
+ * Esta estructura almacena la posición y orientación inicial del jugador,
+ * así como su dirección de mirada y el plano de cámara usado para el cálculo
+ * de raycasting.
+ */
+typedef struct s_player
+{
+	double	x; /**< Posición X del jugador en coordenadas del mapa. */
+	double	y; /**< Posición Y del jugador en coordenadas del mapa. */
+	char	dir; /**< Dirección inicial (N, S, E, W) tomada del mapa. */
+	double	dir_x; /**< Componente X del vector de dirección. */
+	double	dir_y; /**< Componente Y del vector de dirección. */
+	double	plane_x;/**< Componente X del plano de cámara (raycasting). */
+	double	plane_y;/**< Componente Y del plano de cámara (raycasting). */
+}	t_player;
+
 
 /**
  * @struct s_game
@@ -62,6 +81,7 @@ typedef struct s_game
 	t_config	*cfg; /**< Puntero a la configuración 
 	(texturas, colores, etc.). */
 	t_map		*map; /**< Puntero al mapa (grid, filas, columnas). */
+	t_player	player; /**< Campo player (x, y, dir, etc.).*/
 }	t_game;
 
 #endif
