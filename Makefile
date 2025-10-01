@@ -63,7 +63,7 @@ $(LIBFT_A):
 	@$(MAKE) -C $(LIBFT_DIR)
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $^ -o $@ $(LIBS) $(LIBFT_A)
+	@$(CC) $(CFLAGS) $^ -o $@ $(LIBS)
 	@echo "✅ Compilación completa."
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
@@ -79,7 +79,6 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@$(MAKE) fclean -C $(MLX_DIR)
 	@$(MAKE) fclean -C $(LIBFT_DIR)
 	@echo "🧨 Binario eliminado."
 
