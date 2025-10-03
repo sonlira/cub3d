@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:52:41 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/01 18:51:56 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/10/03 20:06:54 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ void	exit_error_and_free(t_game *game, const char *message);
  *
  * @param game Puntero a la estructura principal del juego (t_game).
  */
-void	t_game_free(t_game *game);
+void	game_free(t_game *game);
 
 #endif
 
