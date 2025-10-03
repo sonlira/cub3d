@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_parser.h                                      :+:      :+:    :+:   */
+/*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 19:14:31 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/03 14:13:19 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/10/03 20:24:48 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GAME_PARSER_H
-# define GAME_PARSER_H
+#ifndef PARSER_H
+# define PARSER_H
 
 # include "config_parser.h"
 # include "map_parser.h"
