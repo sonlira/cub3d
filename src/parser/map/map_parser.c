@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 19:18:54 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/01 20:42:41 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/10/03 20:06:54 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	map_parser(t_game *game, unsigned int file_fd)
 		exit_error_and_free(game, ERR_ALLOC);
 	if (!map_loader(game->map, file_fd) || !validate_map(game->map))
 	{
-		t_game_free(game);
+		game_free(game);
 		exit(EXIT_FAILURE);
 	}
 }
