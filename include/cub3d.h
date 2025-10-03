@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:51:38 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/01 19:15:13 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/10/03 14:08:10 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@
 # include "types.h"
 # include "utils.h"
 # include "game_parser.h"
+# include "player.h"
 
 #endif

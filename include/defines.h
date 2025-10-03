@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:51:58 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/09/30 20:09:16 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/10/03 19:39:33 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,18 @@
  */
 # define MAP_MAX_COLS 256
 
-
+/**
+ * @brief Factor que define la amplitud del campo de visión (FOV).
+ *
+ * Este valor se multiplica por el vector perpendicular a la dirección
+ * del jugador para calcular el plano de la cámara.
+ *
+ * Convenciones típicas:
+ *   0.66 → ≈ 66° de FOV (estándar en Wolfenstein / cub3D)
+ *   1.00 → ≈ 90° de FOV
+ *
+ * Ajustar este valor permite abrir o cerrar el ángulo de visión.
+ */
+# define FOV_FACTOR 0.66
 
 #endif
