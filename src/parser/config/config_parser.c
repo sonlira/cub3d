@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 15:29:55 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/01 20:44:33 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/10/03 20:06:54 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	config_parser(t_game *game, unsigned int file_fd)
 		exit_with_error_message(ERR_ALLOC);
 	if (!parse_config_file(game->cfg, file_fd))
 	{
-		t_game_free(game);
+		game_free(game);
 		exit(EXIT_FAILURE);
 	}
 }

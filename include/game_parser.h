@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 19:14:31 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/01 19:22:48 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/10/03 14:13:19 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,7 @@ bool	is_empty_file(const char *file);
  *        de línea de comandos y el archivo de entrada.
  *
  * La función valida los argumentos del programa, abre el archivo de mapa
- * proporcionado, ejecuta el parser de configuración y de mapa, e inicializa
- * al jugador dentro de la estructura `t_game`. 
+ * proporcionado, ejecuta el parser de configuración y de mapa. 
  *
  * Si ocurre un error en cualquiera de las fases (argumentos inválidos,
  * archivo no válido, fallo en el parser o ausencia de jugador válido),

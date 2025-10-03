@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 16:57:21 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/01 20:19:18 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/10/03 20:06:54 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	t_map_free(t_map *map)
 	free(map);
 }
 
-void	t_game_free(t_game *game)
+void	game_free(t_game *game)
 {
 	if (!game)
 		return ;

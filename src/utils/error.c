@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 15:29:28 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/01 17:08:12 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/10/03 20:06:54 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,6 @@ bool	show_error_message(const char *message)
 
 void	exit_error_and_free(t_game *game, const char *message)
 {
-	t_game_free(game);
+	game_free(game);
 	exit_with_error_message(message);
 }
