@@ -1,1 +1,0 @@
-// Que el mapa esté cerrado
