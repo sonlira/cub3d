@@ -6,13 +6,13 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 19:18:54 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/03 20:06:54 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/10/03 20:29:14 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static t_map	*t_map_create(void)
+static t_map	*map_create(void)
 {
 	t_map	*map;
 
@@ -69,7 +69,7 @@ static bool	map_loader(t_map *map, unsigned int fd)
 
 void	map_parser(t_game *game, unsigned int file_fd)
 {
-	game->map = t_map_create();
+	game->map = map_create();
 	if (!game->map)
 		exit_error_and_free(game, ERR_ALLOC);
 	if (!map_loader(game->map, file_fd) || !validate_map(game->map))

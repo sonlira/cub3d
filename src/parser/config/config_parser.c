@@ -6,13 +6,13 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 15:29:55 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/03 20:06:54 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/10/03 20:29:14 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static t_config	*t_config_create(void)
+static t_config	*config_create(void)
 {
 	t_config	*config;
 
@@ -63,7 +63,7 @@ static bool	parse_config_file(t_config *config, unsigned int fd)
 
 void	config_parser(t_game *game, unsigned int file_fd)
 {
-	game->cfg = t_config_create();
+	game->cfg = config_create();
 	if (!game->cfg)
 		exit_with_error_message(ERR_ALLOC);
 	if (!parse_config_file(game->cfg, file_fd))
