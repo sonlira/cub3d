@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 13:18:09 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/03 20:02:03 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/10/04 12:19:38 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,10 @@ bool	is_valid_spawn_char(const char c);
  * el estado de si ya se está dentro de la sección de mapa.
  *
  * @param line    Línea de texto a validar.
- * @param length  Longitud de la línea.
  * @param in_map  Bandera que indica si ya se está dentro del mapa.
  * @return true si la línea es válida, false en caso contrario.
  */
-bool	validate_map_line(char *line, int length, bool *in_map);
+bool	validate_map_line(const char *line, bool *in_map);
 
 /**
  * @brief Procesa el archivo de entrada para construir la representación

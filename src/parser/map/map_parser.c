@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 19:18:54 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/03 20:29:14 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/10/04 13:19:40 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,11 @@ static void	update_map_dimensions(t_map *map, int length)
 
 static bool	parse_map_line(t_map *map, char *line, bool *in_map)
 {
-	int	length;
-
-	length = get_first_word_length(line);
-	if (!validate_map_line(line, length, in_map))
+	if (!validate_map_line(line, in_map))
 		return (false);
-	update_map_dimensions(map, length);
+	if (!*in_map)
+		return (true);
+	update_map_dimensions(map, (int)ft_strlen(line));
 	return (array_push(&map->grid, line));
 }
 
@@ -71,10 +70,7 @@ void	map_parser(t_game *game, unsigned int file_fd)
 {
 	game->map = map_create();
 	if (!game->map)
-		exit_error_and_free(game, ERR_ALLOC);
+		free_game_and_exit_error(game, ERR_ALLOC);
 	if (!map_loader(game->map, file_fd) || !validate_map(game->map))
-	{
-		game_free(game);
-		exit(EXIT_FAILURE);
-	}
+		free_game_and_exit(game);
 }

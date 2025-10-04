@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 17:03:16 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/01 20:05:54 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/10/04 13:10:42 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,20 @@ static bool	is_valid_map_line(const char *line)
 	return (true);
 }
 
-bool	validate_map_line(char *line, int length, bool *in_map)
+static bool	is_blank_line(const char *line)
 {
-	if (length == LINE_EMPTY && *in_map)
+	while (ft_isspace(*line))
+		line++;
+	return (*line == '\0');
+}
+
+bool	validate_map_line(const char *line, bool *in_map)
+{
+	if (is_blank_line(line) && *in_map)
 		return (show_error_message(ERR_MAP_EMPTY_LINE));
-	if (length > LINE_EMPTY && !is_valid_map_line(line))
+	if (!is_blank_line(line) && !is_valid_map_line(line))
 		return (show_error_message(ERR_MAP_CHAR));
-	if (length == LINE_EMPTY && !*in_map)
-		return (true);
-	if (!*in_map)
+	if (!is_blank_line(line) && !*in_map)
 		*in_map = true;
 	return (true);
 }
