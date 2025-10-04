@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 19:14:31 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/03 20:24:48 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/10/04 12:27:03 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,26 @@ bool	is_valid_argc(int argc);
  * @return true si los argumentos son válidos, false en caso contrario.
  */
 bool	is_valid_args(int argc, char **args);
+
+/* ************************************************************************** */
+/*                               MANEJO DE ARCHIVOS                           */
+/* ************************************************************************** */
+
+/**
+ * @brief Intenta abrir un archivo en modo lectura.
+ * 
+ * Utiliza la ruta pasada en `file` para abrir el archivo y asigna
+ * el descriptor de archivo resultante en `fd`.
+ * 
+ * - En caso de éxito, devuelve true y `*fd` contendrá el descriptor válido.
+ * - En caso de error, devuelve false y `*fd` no será válido.
+ * 
+ * @param file Ruta del archivo a abrir.
+ * @param fd Puntero a un entero donde se almacenará el descriptor de archivo.
+ * @return true si el archivo pudo abrirse correctamente,
+ *  false en caso contrario.
+ */
+bool	open_file(const char *file, int *fd);
 
 /* ************************************************************************** */
 /*                           VALIDACIÓN DE ARCHIVOS                           */

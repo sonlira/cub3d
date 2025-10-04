@@ -6,11 +6,19 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 15:31:08 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/01 19:06:42 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/10/04 13:10:02 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+bool	open_file(const char *file, int *fd)
+{
+	*fd = open(file, O_RDONLY);
+	if (*fd < 0)
+		return (false);
+	return (true);
+}
 
 bool	is_valid_extension(const char *file_path, const char *file_extension)
 {
