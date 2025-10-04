@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 15:29:55 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/03 20:29:14 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/10/04 13:20:00 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,21 @@ static t_config	*config_create(void)
 	config->floor_color = RGB_UNSET;
 	config->ceiling_color = RGB_UNSET;
 	return (config);
+}
+
+static int	get_first_word_length(const char *str)
+{
+	int		length;
+
+	length = 0;
+	while (ft_isspace(*str))
+		str++;
+	while (*str && !ft_isspace(*str))
+	{
+		length++;
+		str++;
+	}
+	return (length);
 }
 
 static bool	parse_config_line(t_config *config, const char *line)
@@ -67,8 +82,5 @@ void	config_parser(t_game *game, unsigned int file_fd)
 	if (!game->cfg)
 		exit_with_error_message(ERR_ALLOC);
 	if (!parse_config_file(game->cfg, file_fd))
-	{
-		game_free(game);
-		exit(EXIT_FAILURE);
-	}
+		free_game_and_exit(game);
 }
