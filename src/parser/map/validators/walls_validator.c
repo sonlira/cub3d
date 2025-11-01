@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 18:48:31 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/01 20:21:50 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/10/31 21:47:20 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,16 @@ bool	is_valid_walls(t_map *map)
 	int			**visited;
 	t_player	player;
 
-	visited = NULL;
 	find_player(map->grid, &player);
-	if (!create_matrix(&visited, map->rows, map->cols))
+	visited = (int **) ft_create_matrix(map->rows, map->cols, \
+		sizeof(*visited), false);
+	if (!visited)
 		return (false);
 	if (!flood_fill(map, player.x, player.y, visited))
 	{
-		free_matrix(&visited, map->rows);
+		ft_free_matrix((void **)visited, map->rows);
 		return (false);
 	}
-	free_matrix(&visited, map->rows);
+	ft_free_matrix((void **)visited, map->rows);
 	return (true);
 }

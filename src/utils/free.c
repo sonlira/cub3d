@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 16:57:21 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/03 20:27:32 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/10/31 21:48:38 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	map_free(t_map *map)
 	if (!map)
 		return ;
 	if (map->grid)
-		ft_free_split(&map->grid);
+		ft_free_split(map->grid);
 	free(map);
 }
 

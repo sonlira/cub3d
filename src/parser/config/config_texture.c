@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 15:29:42 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/09/21 15:29:45 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/10/31 21:42:09 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ bool	texture_config(t_config *config, const char *line)
 	char	**tex_argv;
 
 	tex_argv = ft_split(line, ' ');
-	tex_argc = ft_count_elements((const char **) tex_argv);
+	tex_argc = ft_strslen(tex_argv);
 	if (!validate_texture(config, tex_argc, tex_argv))
 	{
-		ft_free_split(&tex_argv);
+		ft_free_split(tex_argv);
 		return (false);
 	}
 	config->textures[parse_texture_type(tex_argv[0])] = ft_strdup(tex_argv[1]);
-	ft_free_split(&tex_argv);
+	ft_free_split(tex_argv);
 	return (true);
 }

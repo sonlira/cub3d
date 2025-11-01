@@ -1,39 +1,50 @@
-# Archivos binarios
-minishell
+# === Compilación ===
 *.o
 *.a
 *.so
+a.out
+main
+test
 
-# Carpetas intermedias
-obj/
+# === Carpetas de build ===
+/build/
+/bin/
+/obj/
+/out/
 
-# Archivos de respaldo o temporales
-*~
-*.swp
-*.tmp
+# === Archivos temporales y logs ===
 *.log
-.*
+*.tmp
+*.bak
+*.old
+*.swp
 
-# Archivos de readline
-.history
+# === Archivos de texto personales ===
+*.txt
 
-# Archivos del entorno
-.vscode/
-*.code-workspace
-
-# Archivos de MacOS
+# === Archivos de sistema ===
 .DS_Store
+Thumbs.db
+Desktop.ini
 
-# Archivos de GDB/debug
-.gdb_history
-.gdbinit
+# === Configuración de IDEs ===
+.vscode/
+.idea/
+.clangd/
+.ccls-cache/
 
-# Librería libft
-libft/libft.a
+# === Documentación generada ===
+/docs/
+/doxygen/
+/html/
+/latex/
 
-# Archivos generados por Makefile
-*.out
+# === Archivos de crash o depuración ===
+core
+vgcore.*
 
-# Evita subir archivos ocultos de shell
+# === Entornos locales ===
 .env
-.idea
+
+# === Archivos binarios ===
+cub3d

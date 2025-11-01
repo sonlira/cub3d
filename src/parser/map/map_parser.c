@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 19:18:54 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/04 13:19:40 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/10/31 22:13:44 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static bool	parse_map_line(t_map *map, char *line, bool *in_map)
 	if (!*in_map)
 		return (true);
 	update_map_dimensions(map, (int)ft_strlen(line));
-	return (array_push(&map->grid, line));
+	return (ft_arraypush(&map->grid, line));
 }
 
 static bool	map_loader(t_map *map, unsigned int fd)
@@ -58,6 +58,7 @@ static bool	map_loader(t_map *map, unsigned int fd)
 			line[(ft_strlen(line) - 1)] = '\0';
 		if (!parse_map_line(map, line, &in_map))
 		{
+			get_next_line_free(fd);
 			free(line);
 			return (false);
 		}
