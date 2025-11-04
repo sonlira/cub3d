@@ -21,6 +21,7 @@ test
 
 # === Archivos de texto personales ===
 *.txt
+*.png
 
 # === Archivos de sistema ===
 .DS_Store
