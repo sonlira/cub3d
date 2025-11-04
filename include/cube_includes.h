@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub_includes.h                                     :+:      :+:    :+:   */
+/*   cube_includes.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:52:27 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/24 19:44:04 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/11/04 14:04:20 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@
 # include <stdbool.h>
 # include <limits.h>
 # include <sys/types.h>
+# include <X11/keysym.h>
+# include <X11/X.h>
 
 #endif

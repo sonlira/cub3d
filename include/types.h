@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:41:39 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/01 14:10:30 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/11/04 19:23:07 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,40 @@ typedef struct s_player
 
 
 /**
+ * @struct s_img
+ * @brief Representa una imagen utilizada por la librería mlx.
+ * 
+ * Esta estructura contiene la información necesaria para manipular
+ * una imagen en memoria, incluyendo su dirección de píxeles y
+ * los parámetros de formato.
+ */
+typedef struct s_img
+{
+	void	*img; //Puntero a la imagen creada por mlx.
+	char	*addr;//Dirección de memoria donde comienzan los datos de la imagen.
+	int		bpp; //Bits por píxel de la imagen (bits per pixel).
+	int		line_len;//Longitud de una línea de píxeles en bytes. 
+	int		endian; //Indicador del orden de bytes (endianess) de la imagen.
+}	t_img;
+
+/**
+ * @struct s_app
+ * @brief Representa la aplicación principal que gestiona mlx.
+ * 
+ * Esta estructura almacena los punteros principales a la instancia de mlx,
+ * la ventana del programa y el frame actual, así como los colores del
+ * techo y el suelo.
+ */
+typedef struct s_app
+{
+	void	*mlx; /**< Puntero al contexto principal de mlx. */
+	void	*win; /**< Puntero a la ventana creada por mlx. */
+	t_img	frame; /**< Imagen que representa el frame actual a renderizar. */
+	int		ceil_rgb; /**< Color RGB del techo (ceiling). */
+	int		floor_rgb; /**< Color RGB del suelo (floor). */
+}	t_app;
+
+/**
  * @struct s_game
  * @brief Estado principal del juego.
  * 
@@ -78,10 +112,10 @@ typedef struct s_player
  */
 typedef struct s_game
 {
-	t_config	*cfg; /**< Puntero a la configuración 
-	(texturas, colores, etc.). */
+	t_config	*cfg; //Puntero a la configuración (texturas, colores, etc.).
 	t_map		*map; /**< Puntero al mapa (grid, filas, columnas). */
 	t_player	player; /**< Campo player (x, y, dir, etc.).*/
+	t_app		*app; //Puntero a app (mlx, win, img, etc)
 }	t_game;
 
 #endif

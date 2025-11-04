@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   render.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/21 14:51:38 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/04 14:52:34 by abaldelo         ###   ########.fr       */
+/*   Created: 2025/11/04 14:51:40 by abaldelo          #+#    #+#             */
+/*   Updated: 2025/11/04 19:23:52 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef RENDER_H
+# define RENDER_H
 
-# include "cube_includes.h"
-# include "errors.h"
-# include "defines.h"
-# include "enums.h"
-# include "types.h"
-# include "cube_utils.h"
-# include "parser.h"
-# include "player.h"
-# include "render.h"
+void	app_init(t_game *game);
 
 #endif

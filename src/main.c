@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 15:29:13 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/03 20:30:29 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/11/04 19:24:13 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int argc, char **argv)
 
 	game_parser(argc, argv, &game);
 	player_init(game.map, &game.player);
+	app_init(&game);
 	game_free(&game);
 	return (0);
 }

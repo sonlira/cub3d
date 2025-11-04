@@ -6,12 +6,22 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:51:58 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/03 19:39:33 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/11/04 14:29:32 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINES_H
 # define DEFINES_H
+
+/**
+ * @brief Valor del ancho (width) de la pantalla creada por mlx
+ */
+# define W 1024
+
+/**
+ * @brief Valor del alto (height) de la pantalla creada por mlx
+ */
+# define H 768
 
 /**
  * @brief Valor especial que indica que un componente RGB aún no fue asignado.
