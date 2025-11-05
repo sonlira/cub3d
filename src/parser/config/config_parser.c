@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 15:29:55 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/31 22:14:27 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/11/05 15:36:23 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ static bool	parse_config_line(t_config *config, const char *line)
 	int	lenght;
 
 	lenght = get_first_word_length(line);
-	if (lenght > TEXTURE_ID_LEN)
-		return (show_error_message(ERR_CONFIG_UNKNOWN));
 	if (lenght == LINE_EMPTY)
 		return (true);
 	if (lenght == COLOR_ID_LEN)
 		return (color_config(config, line));
-	return (texture_config(config, line));
+	if (lenght == TEXTURE_ID_LEN)
+		return (texture_config(config, line));
+	return (show_error_message(ERR_CONFIG_UNKNOWN));
 }
 
 static bool	parse_config_file(t_config *config, unsigned int fd)
@@ -83,5 +83,5 @@ void	config_parser(t_game *game, unsigned int file_fd)
 	if (!game->cfg)
 		exit_with_error_message(ERR_ALLOC);
 	if (!parse_config_file(game->cfg, file_fd))
-		free_game_and_exit(game);
+		free_game_and_exit(game, EXIT_FAILURE);
 }

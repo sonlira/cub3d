@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:52:41 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/24 19:44:33 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/11/05 15:40:08 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,17 @@ bool	show_error_message(const char *message);
 void	free_game_and_exit_error(t_game *game, const char *message);
 
 /**
- * @brief Libera todos los recursos del juego y termina la ejecución.
+ * @brief Libera todos los recursos del juego y finaliza la ejecución.
  *
- * Esta función se utiliza para finalizar el programa liberando
+ * Esta función se utiliza para terminar el programa liberando
  * previamente toda la memoria asociada a la estructura `t_game`.
- * No muestra ningún mensaje de error ni realiza otras acciones;
- * simplemente libera los recursos y sale con un código de fallo
- * (`EXIT_FAILURE`).
+ * No muestra mensajes de error ni realiza otras acciones;
+ * simplemente libera los recursos y finaliza el proceso con @p code.
  *
  * @param game Puntero a la estructura del juego que se debe liberar.
+ * @param code Código de salida pasado a exit().
  */
-void	free_game_and_exit(t_game *game);
+void	free_game_and_exit(t_game *game, int code);
 
 /* ************************************************************************** */
 /*                            FUNCIONES DE LIBERACIÓN                         */
@@ -72,10 +72,12 @@ void	free_game_and_exit(t_game *game);
 /**
  * @brief Libera todos los recursos asociados a una instancia de t_game.
  *
+ * @details
  * Esta función libera de forma ordenada la memoria dinámica utilizada
  * dentro de la estructura principal del juego:
  * - Llama a `config_free` para liberar la configuración.
  * - Llama a `map_free` para liberar el mapa.
+ * - LLama a `app_destroy` para liberar mlx.
  * - Finalmente libera la propia estructura `t_game`.
  *
  * @param game Puntero a la estructura principal del juego (t_game).

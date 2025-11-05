@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 14:08:50 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/04 18:47:06 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/11/05 15:06:29 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	put_pixel(t_img *img, int x, int y, int rgb)
 
 	dst = NULL;
 	dst = img->addr + (y * img->line_len + x * (img->bpp / 8));
-	*(unsigned int *)dst = (0xFF << 24) | rgb;
+	*(unsigned int *)dst = rgb;
 }
 
 static void	draw_background(t_app *app)
@@ -38,12 +38,13 @@ static void	draw_background(t_app *app)
 	int	rgb;
 
 	y = 0;
-	x = 0;
-	rgb = app->ceil_rgb;
 	while (y < H)
 	{
-		if (y > (H / 2))
+		if (y < (H / 2))
+			rgb = app->ceil_rgb;
+		else
 			rgb = app->floor_rgb;
+		x = 0;
 		while (x < W)
 		{
 			put_pixel(&app->frame, x, y, rgb);
@@ -53,22 +54,17 @@ static void	draw_background(t_app *app)
 	}
 }
 
-static int	key_hook(int key, t_app *app)
+static int	key_hook(int key, t_game *game)
 {
 	if (key == XK_Escape)
-	{
-		mlx_destroy_image(app->mlx, app->frame.img);
-		mlx_destroy_window(app->mlx, app->win);
-		exit(0);
-	}
+		free_game_and_exit(game, EXIT_SUCCESS);
 	return (0);
 }
 
-static int	close_hook(t_app *app)
+static int	close_hook(t_game *game)
 {
-	mlx_destroy_image(app->mlx, app->frame.img);
-	mlx_destroy_window(app->mlx, app->win);
-	exit(0);
+	free_game_and_exit(game, EXIT_SUCCESS);
+	return (0);
 }
 
 void	app_init(t_game *game)
@@ -84,10 +80,10 @@ void	app_init(t_game *game)
 	app->win = mlx_new_window(app->mlx, W, H, "cub3d -- window");
 	app->frame.img = mlx_new_image(app->mlx, W, H);
 	app->frame.addr = mlx_get_data_addr(app->frame.img, &app->frame.bpp, \
-		&app->frame.line_len, &app->frame.endian);
+								&app->frame.line_len, &app->frame.endian);
 	draw_background(app);
 	mlx_put_image_to_window(app->mlx, app->win, app->frame.img, 0, 0);
-	mlx_hook(app->win, KeyPress, KeyPressMask, key_hook, app);
-	mlx_hook(app->win, DestroyNotify, StructureNotifyMask, close_hook, app);
-	mlx_loop(app->mlx);
+	game->app = app;
+	mlx_hook(app->win, KeyPress, KeyPressMask, key_hook, game);
+	mlx_hook(app->win, DestroyNotify, StructureNotifyMask, close_hook, game);
 }

@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:41:39 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/04 19:23:07 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/11/05 14:34:40 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,11 @@
  */
 typedef struct s_config
 {
-	char	*textures[NUM_TEXTURES]; /**< Rutas a las texturas de paredes 
-	[NO, SO, WE, EA]. */
-	int		floor_rgb[RGB_COMPONENTS]; /**< Color del suelo en formato RGB 
-	separado [R, G, B]. */
-	int		ceiling_rgb[RGB_COMPONENTS]; /**< Color del techo en formato RGB 
-	separado [R, G, B]. */
-	int		floor_color; /**< Color del suelo empaquetado en formato 
-	0xRRGGBB. */
-	int		ceiling_color; /**< Color del techo empaquetado en formato 
-	0xRRGGBB. */
+	char	*textures[NUM_TEXTURES]; // Rutas a las texturas [NO, SO, WE, EA].
+	int		floor_rgb[RGB_COMPONENTS]; // Color del suelo en RGB [R, G, B].
+	int		ceiling_rgb[RGB_COMPONENTS]; // Color del techo en RGB [R, G, B].
+	int		floor_color; // Color del suelo empaquetado en formato 0xRRGGBB.
+	int		ceiling_color; // Color del techo empaquetado en formato 0xRRGGBB.
 }	t_config;
 
 
@@ -44,9 +39,9 @@ typedef struct s_config
  */
 typedef struct s_map
 {
-	char	**grid; /**< Mapa en forma de matriz de caracteres [rows][cols]. */
-	int		rows; /**< Número total de filas en el mapa. */
-	int		cols; /**< Número total de columnas en el mapa. */
+	char	**grid; // Mapa en forma de matriz de caracteres [rows][cols].
+	int		rows; // Número total de filas en el mapa.
+	int		cols; // Número total de columnas en el mapa.
 }	t_map;
 
 /**
@@ -79,11 +74,11 @@ typedef struct s_player
  */
 typedef struct s_img
 {
-	void	*img; //Puntero a la imagen creada por mlx.
+	void	*img; // Puntero a la imagen creada por mlx.
 	char	*addr;//Dirección de memoria donde comienzan los datos de la imagen.
-	int		bpp; //Bits por píxel de la imagen (bits per pixel).
-	int		line_len;//Longitud de una línea de píxeles en bytes. 
-	int		endian; //Indicador del orden de bytes (endianess) de la imagen.
+	int		bpp; // Bits por píxel de la imagen (bits per pixel).
+	int		line_len;// Longitud de una línea de píxeles en bytes. 
+	int		endian; // Indicador del orden de bytes (endianess) de la imagen.
 }	t_img;
 
 /**
@@ -112,10 +107,10 @@ typedef struct s_app
  */
 typedef struct s_game
 {
-	t_config	*cfg; //Puntero a la configuración (texturas, colores, etc.).
-	t_map		*map; /**< Puntero al mapa (grid, filas, columnas). */
-	t_player	player; /**< Campo player (x, y, dir, etc.).*/
-	t_app		*app; //Puntero a app (mlx, win, img, etc)
+	t_config	*cfg; // Puntero a la configuración (texturas, colores, etc.).
+	t_map		*map; // Puntero al mapa (grid, filas, columnas). */
+	t_player	player; // Campo player (x, y, dir, etc.).*/
+	t_app		*app; // Puntero a app (mlx, win, img, etc)
 }	t_game;
 
 #endif

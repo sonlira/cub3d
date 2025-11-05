@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 15:29:28 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/04 13:18:53 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/11/05 14:51:47 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	free_game_and_exit_error(t_game *game, const char *message)
 	exit_with_error_message(message);
 }
 
-void	free_game_and_exit(t_game *game)
+void	free_game_and_exit(t_game *game, int code)
 {
 	game_free(game);
-	exit(EXIT_FAILURE);
+	exit(code);
 }
