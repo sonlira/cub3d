@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   window.c                                           :+:      :+:    :+:   */
+/*   draw_background.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/04 14:08:50 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/05 18:10:39 by abaldelo         ###   ########.fr       */
+/*   Created: 2025/11/05 19:22:25 by abaldelo          #+#    #+#             */
+/*   Updated: 2025/11/05 19:23:47 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	put_pixel(t_img *img, int x, int y, int rgb)
 	*(unsigned int *)dst = rgb;
 }
 
-static void	draw_background(t_app *app)
+void	draw_background(t_app *app)
 {
 	int	y;
 	int	x;
@@ -41,15 +41,4 @@ static void	draw_background(t_app *app)
 		}
 		++y;
 	}
-}
-
-void	window_init(t_app *app)
-{
-	app->mlx = mlx_init();
-	app->win = mlx_new_window(app->mlx, W, H, WIN_TITLE);
-	app->frame.img = mlx_new_image(app->mlx, W, H);
-	app->frame.addr = mlx_get_data_addr(app->frame.img, &app->frame.bpp,
-			&app->frame.line_len, &app->frame.endian);
-	draw_background(app);
-	mlx_put_image_to_window(app->mlx, app->win, app->frame.img, 0, 0);
 }

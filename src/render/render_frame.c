@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   render_frame.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/21 15:29:13 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/05 20:07:50 by abaldelo         ###   ########.fr       */
+/*   Created: 2025/11/05 19:26:06 by abaldelo          #+#    #+#             */
+/*   Updated: 2025/11/05 20:08:57 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	main(int argc, char **argv)
+int	render_frame(t_game *game)
 {
-	t_game	game;
-
-	game_parser(argc, argv, &game);
-	player_init(game.map, &game.player);
-	app_init(&game);
-	mlx_loop_hook(game.app->mlx, render_frame, &game);
-	mlx_loop(game.app->mlx);
-	game_free(&game);
+	(void) game;
 	return (0);
 }
