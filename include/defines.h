@@ -6,12 +6,17 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:51:58 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/04 14:29:32 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/11/05 18:06:56 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINES_H
 # define DEFINES_H
+
+/**
+ * @brief Título de la pantalla creada por mlx
+ */
+# define WIN_TITLE "CUB3D"
 
 /**
  * @brief Valor del ancho (width) de la pantalla creada por mlx

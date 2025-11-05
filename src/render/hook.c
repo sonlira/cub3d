@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.h                                           :+:      :+:    :+:   */
+/*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/04 14:51:40 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/05 18:05:15 by abaldelo         ###   ########.fr       */
+/*   Created: 2025/11/05 15:28:50 by abaldelo          #+#    #+#             */
+/*   Updated: 2025/11/05 18:04:13 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RENDER_H
-# define RENDER_H
+#include "cub3d.h"
 
-void	app_init(t_game *game);
-void	window_init(t_app *app);
-void	hook(t_game *game);
+static int	close_hook(t_game *game)
+{
+	free_game_and_exit(game, EXIT_SUCCESS);
+	return (0);
+}
 
-#endif
+static int	key_hook(int key, t_game *game)
+{
+	if (key == XK_Escape)
+		return (close_hook(game));
+	return (0);
+}
+
+void	hook(t_game *game)
+{
+	mlx_hook(game->app->win, KeyPress, KeyPressMask, key_hook, game);
+	mlx_hook(game->app->win, DestroyNotify, StructureNotifyMask, close_hook,
+		game);
+}

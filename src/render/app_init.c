@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.h                                           :+:      :+:    :+:   */
+/*   app_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/04 14:51:40 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/05 18:05:15 by abaldelo         ###   ########.fr       */
+/*   Created: 2025/11/05 15:28:55 by abaldelo          #+#    #+#             */
+/*   Updated: 2025/11/05 18:02:32 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RENDER_H
-# define RENDER_H
+#include "cub3d.h"
 
-void	app_init(t_game *game);
-void	window_init(t_app *app);
-void	hook(t_game *game);
+static t_app	*app_create(void)
+{
+	t_app	*app;
 
-#endif
+	app = ft_calloc(1, sizeof(*app));
+	if (!app)
+		return (NULL);
+	return (app);
+}
+
+void	app_init(t_game *game)
+{
+	game->app = app_create();
+	if (!game->app)
+		exit_with_error_message(ERR_ALLOC);
+	game->app->ceil_rgb = game->cfg->ceiling_color;
+	game->app->floor_rgb = game->cfg->floor_color;
+	window_init(game->app);
+	hook(game);
+}
