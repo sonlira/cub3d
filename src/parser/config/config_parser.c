@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 15:29:55 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/05 15:36:23 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/11/07 17:18:45 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static bool	parse_config_file(t_config *config, unsigned int fd)
 			line[(ft_strlen(line) - 1)] = '\0';
 		if (!parse_config_line(config, line))
 		{
-			get_next_line(fd);
+			get_next_line_free(fd);
 			free(line);
 			return (false);
 		}
