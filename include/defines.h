@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:51:58 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/05 18:06:56 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/11/17 18:43:49 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,37 @@
  * Ajustar este valor permite abrir o cerrar el ángulo de visión.
  */
 # define FOV_FACTOR 0.66
+
+/**
+ * @brief Tamaño de celda del minimapa.
+ */
+# define SCALE 20
+
+/**
+ * @brief Color de las celdas tipo pared (`1`) del minimapa.
+ * @example
+ * 11184886  // Gris piedra claro
+ * 13158600  // Gris claro
+ * 3947580   // Gris oscuro
+ */
+# define COLOR_MINIMAP_WALL 11184886
+
+/**
+ * @brief Color de las celdas tipo suelo/vacío (`0`) del minimapa.
+ * @example
+ * 5265224   // Marrón oscuro (estilo dungeon)
+ * 3281178   // Azul grisáceo oscuro
+ * 14408694  // Arena clara
+ */
+# define COLOR_MINIMAP_FLOOR 5265224
+
+/**
+ * @brief Color del borde de las celdas del minimapa.
+ * @example
+ * 1315798   // Azul oscuro
+ * 1973790   // Gris muy oscuro
+ * 0         // Negro
+ */
+# define COLOR_MINIMAP_BORDER 1315798 
 
 #endif

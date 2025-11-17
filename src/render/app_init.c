@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 15:28:55 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/05 19:35:20 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/11/17 18:44:55 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,18 @@ static t_app	*app_create(void)
 	return (app);
 }
 
-static void	window_init(t_app *app)
+static void	window_init(t_game *game)
 {
+	t_app	*app;
+
+	app = game->app;
 	app->mlx = mlx_init();
 	app->win = mlx_new_window(app->mlx, W, H, WIN_TITLE);
 	app->frame.img = mlx_new_image(app->mlx, W, H);
 	app->frame.addr = mlx_get_data_addr(app->frame.img, &app->frame.bpp,
 			&app->frame.line_len, &app->frame.endian);
 	draw_background(app);
+	draw_minimap(game); // es parte del bonus
 	mlx_put_image_to_window(app->mlx, app->win, app->frame.img, 0, 0);
 }
 
@@ -40,6 +44,6 @@ void	app_init(t_game *game)
 		exit_with_error_message(ERR_ALLOC);
 	game->app->ceil_rgb = game->cfg->ceiling_color;
 	game->app->floor_rgb = game->cfg->floor_color;
-	window_init(game->app);
+	window_init(game);
 	hook(game);
 }

@@ -6,13 +6,13 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 19:22:25 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/05 19:23:47 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/11/17 18:25:58 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	put_pixel(t_img *img, int x, int y, int rgb)
+void	put_pixel(t_img *img, int x, int y, int rgb)
 {
 	char	*dst;
 
