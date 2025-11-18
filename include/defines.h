@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:51:58 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/17 18:43:49 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/11/18 09:20:32 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,23 @@
  * 1973790   // Gris muy oscuro
  * 0         // Negro
  */
-# define COLOR_MINIMAP_BORDER 1315798 
+# define COLOR_MINIMAP_BORDER 1315798
+
+/**
+ * @brief Color de player en minimapa.
+ * @example
+ * 16724796  // Rojo brillante
+ * 65450     // Verde lima
+ * 3982847   // Azul brillante
+ * 16764928  // Amarillo
+ * 16743168  // Naranja
+ */
+# define COLOR_MINIMAP_PLAYER 16724796
+
+/**
+ * @brief Tamaño de player en minimapa
+ * @note Se debe cumplir esta condicíon PLAYER_SCALE < SCALE / 2
+ */
+# define PLAYER_SCALE 5
 
 #endif

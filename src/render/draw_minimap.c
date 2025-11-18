@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 13:16:51 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/17 18:26:22 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/11/18 09:09:24 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,33 @@ void	draw_minimap(t_game *game)
 			++mx;
 		}
 		++my;
+	}
+}
+
+void	draw_player_minimap(t_game *game)
+{
+	int	y;
+	int	x;
+	int	py;
+	int	px;
+
+	y = 0;
+	py = game->player.y * SCALE;
+	while (y < SCALE)
+	{
+		x = 0;
+		px = game->player.x * SCALE;
+		while (x < SCALE)
+		{
+			if (y >= SCALE / 2 - PLAYER_SCALE
+				&& y <= SCALE / 2 + PLAYER_SCALE
+				&& x >= SCALE / 2 - PLAYER_SCALE
+				&& x <= SCALE / 2 + PLAYER_SCALE)
+				put_pixel(&game->app->frame, px, py, COLOR_MINIMAP_PLAYER);
+			++px;
+			++x;
+		}
+		++py;
+		++y;
 	}
 }
