@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 13:16:51 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/18 09:09:24 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/11/26 13:29:01 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,3 +88,32 @@ void	draw_player_minimap(t_game *game)
 		++y;
 	}
 }
+
+// void	draw_dir_minimap(t_game *game)
+// {
+// 	t_point p;
+// 	// t_point	end;
+// 	// int l = 20;
+// 	// t_point	d;
+// 	// int	step;
+
+// 	p.x = game->player.x * SCALE;
+// 	p.y = game->player.y * SCALE;
+
+// 	put_pixel(&game->app->frame, (int)p.x, (int)p.y, COLOR_MINIMAP_PLAYER);
+
+// 	// end.x = (int)p.x + game->player.dir_x * l;
+// 	// end.y = (int)p.y + game->player.dir_y * l;
+// 	// put_pixel(&game->app->frame, (int)end.x, (int)end.y, COLOR_MINIMAP_PLAYER);
+
+// }
+
+// void	cast_single_ray_minimap(t_game *game)
+// {
+	
+// 	int ray_x = game->player.x;
+// 	int ray_y = game->player.y;
+// 	int	map_x = (int)ray_x;
+// 	int	map_y = (int)ray_y;
+// }
+

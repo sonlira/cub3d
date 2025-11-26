@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:41:39 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/05 14:34:40 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/11/19 12:51:25 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ typedef struct s_config
 	int		ceiling_color; // Color del techo empaquetado en formato 0xRRGGBB.
 }	t_config;
 
+typedef struct s_point
+{
+	double	x;
+	double	y;
+}	t_point;
 
 /**
  * @struct s_map

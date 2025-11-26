@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:51:58 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/18 09:20:32 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/11/26 13:49:52 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@
 /**
  * @brief Tamaño de celda del minimapa.
  */
-# define SCALE 20
+# define SCALE 60 //10
 
 /**
  * @brief Color de las celdas tipo pared (`1`) del minimapa.
@@ -150,6 +150,6 @@
  * @brief Tamaño de player en minimapa
  * @note Se debe cumplir esta condicíon PLAYER_SCALE < SCALE / 2
  */
-# define PLAYER_SCALE 5
+# define PLAYER_SCALE 15 // 5
 
 #endif
