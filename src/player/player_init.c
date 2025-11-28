@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:04:47 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/07 17:22:06 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/11/28 10:39:16 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void	player_init(t_map *map, t_player *player)
 	// El plano siempre depende de la dirección (dir_x, dir_y)
 	player->plane_x = -player->dir_y * FOV_FACTOR;
 	player->plane_y = player->dir_x * FOV_FACTOR;
+	initialize_dda(player);
 }
 
 /**	

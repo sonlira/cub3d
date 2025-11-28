@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   dda.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/21 14:51:38 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/28 10:41:19 by bgil-fer         ###   ########.fr       */
+/*   Created: 2025/11/28 10:39:53 by bgil-fer          #+#    #+#             */
+/*   Updated: 2025/11/28 10:40:59 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef DDA_H
+# define DDA_H
 
-# include "cube_includes.h"
-# include "errors.h"
-# include "defines.h"
-# include "enums.h"
-# include "types.h"
-# include "cube_utils.h"
-# include "parser.h"
-# include "player.h"
-# include "render.h"
-# include "dda.h"
+void	initialize_dda(t_player *player);
 
 #endif

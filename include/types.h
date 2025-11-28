@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   types.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:41:39 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/19 12:51:25 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/11/28 10:31:41 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct s_player
 	double	dir_y; /**< Componente Y del vector de dirección. */
 	double	plane_x;/**< Componente X del plano de cámara (raycasting). */
 	double	plane_y;/**< Componente Y del plano de cámara (raycasting). */
+	t_dda	*dda;
 }	t_player;
 
 
@@ -117,5 +118,19 @@ typedef struct s_game
 	t_player	player; // Campo player (x, y, dir, etc.).*/
 	t_app		*app; // Puntero a app (mlx, win, img, etc)
 }	t_game;
+
+typedef struct s_dda
+{
+	int	x; //Posición en la cuadrícula
+	int	y;
+	int	x_step; // Dirección del paso (izad o dcha)
+	int	y_step; // Dirección del paso (up or down)
+	int	x_dist; // Distancia 1º inicial, después + linelength
+	int	y_dist;
+	int	x_linelength; // Distancia a la siguiente línea vertical
+	int	y_linelength; // Distancia al siguiente paso horizontal
+	int	distance; // Distancia real del jugador al muro sin sumar un cuadradito más
+	int	wall_face; // Qué cara del muro vemos (N, S, W, E)
+}		t_dda;
 
 #endif
