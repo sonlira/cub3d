@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:51:58 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/26 13:49:52 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/11/28 13:23:18 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,5 +151,9 @@
  * @note Se debe cumplir esta condicíon PLAYER_SCALE < SCALE / 2
  */
 # define PLAYER_SCALE 15 // 5
+
+#define PI 3.14159265358979323846
+
+#define PIXELS 64
 
 #endif

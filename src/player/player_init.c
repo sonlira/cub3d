@@ -6,16 +6,22 @@
 /*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:04:47 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/28 10:39:16 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/11/28 12:51:31 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	player_set_dir(double x, double y, t_player *player)
+static void	player_set_dir(double x, double y, t_player *player, char dir)
 {
 	player->dir_x = x;
 	player->dir_y = y;
+	if (dir == 'W')
+		player->angle = PI;
+	else if (dir == 'N')
+		player->angle = PI / 2;
+	else if (dir == 'S')
+		player->angle = 3 * PI / 2;
 }
 
 /**
@@ -38,13 +44,13 @@ static void	player_set_dir(double x, double y, t_player *player)
 static void	player_init_dir(t_player *player)
 {
 	if (player->dir == MAP_SPAWN_N)
-		player_set_dir(0, -1, player);
+		player_set_dir(0, -1, player, 'N');
 	else if (player->dir == MAP_SPAWN_S)
-		player_set_dir(0, 1, player);
+		player_set_dir(0, 1, player, 'S');
 	else if (player->dir == MAP_SPAWN_E)
-		player_set_dir(1, 0, player);
+		player_set_dir(1, 0, player, 'E');
 	else if (player->dir == MAP_SPAWN_W)
-		player_set_dir(-1, 0, player);
+		player_set_dir(-1, 0, player, 'W');
 }
 
 bool	find_player(char **grid, t_player *player)

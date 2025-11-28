@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube_includes.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:52:27 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/04 14:04:20 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/11/28 11:44:11 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
