@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:51:58 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/28 13:23:18 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/12/01 19:16:33 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@
 /**
  * @brief Tamaño de celda del minimapa.
  */
-# define SCALE 60 //10
+# define SCALE 25
 
 /**
  * @brief Color de las celdas tipo pared (`1`) del minimapa.
@@ -150,7 +150,7 @@
  * @brief Tamaño de player en minimapa
  * @note Se debe cumplir esta condicíon PLAYER_SCALE < SCALE / 2
  */
-# define PLAYER_SCALE 15 // 5
+# define PLAYER_SCALE 5
 
 #define PI 3.14159265358979323846
 

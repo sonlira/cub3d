@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:06:40 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/03 20:06:22 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/01 18:04:34 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,11 @@ void	player_init(t_map *map, t_player *player);
 /*                      FUNCIONES DEL JUGADOR (PLAYER)                        */
 /* ************************************************************************** */
 
+void	move_forward(t_game *game, double move_speed);
+void	move_behind(t_game *game, double move_speed);
+void	move_right(t_game *game, double move_speed);
+void	move_left(t_game *game, double move_speed);
+void	rotate_right(t_game *game, double rot_speed);
+void	rotate_left(t_game *game, double rot_speed);
 
 #endif

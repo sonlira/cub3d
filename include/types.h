@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   types.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:41:39 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/28 13:11:23 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/12/01 17:38:40 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,16 @@ typedef struct s_app
 	int		floor_rgb; /**< Color RGB del suelo (floor). */
 }	t_app;
 
+typedef struct s_input
+{
+	bool	w;
+	bool	s;
+	bool	a;
+	bool	d;
+	bool	left;
+	bool	right;
+}	t_input;
+
 /**
  * @struct s_game
  * @brief Estado principal del juego.
@@ -134,6 +144,7 @@ typedef struct s_game
 	t_map		*map; // Puntero al mapa (grid, filas, columnas). */
 	t_player	player; // Campo player (x, y, dir, etc.).*/
 	t_app		*app; // Puntero a app (mlx, win, img, etc)
+	t_input		input; // Estado de teclas;
 }	t_game;
 
 
