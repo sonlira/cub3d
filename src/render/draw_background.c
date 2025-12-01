@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 19:22:25 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/17 18:25:58 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/01 20:16:20 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	put_pixel(t_img *img, int x, int y, int rgb)
 {
 	char	*dst;
 
+	if (x < 0 || x >= W || y < 0 || y >= H)
+		return ;
 	dst = img->addr + (y * img->line_len + x * (img->bpp / 8)); // 1 byte == 8 bits
 	*(unsigned int *)dst = rgb;
 }
