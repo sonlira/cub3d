@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   config_texture.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 15:29:42 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/31 21:42:09 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/02 14:16:31 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

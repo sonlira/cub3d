@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture_validator.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 15:30:28 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/09/21 15:31:00 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/02 14:16:31 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

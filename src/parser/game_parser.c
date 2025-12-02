@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_parser.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 20:41:54 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/03 20:20:10 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/02 13:57:22 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ void	game_parser(int argc, char **argv, t_game *game)
 	open_file(argv[1], &fd);
 	config_parser(game, fd);
 	map_parser(game, fd);
+	render_images(game);
 	close(fd);
 }

@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 
-void	initialize_dda(t_player *player)
+void	initialize_dda(t_player *player, t_game *game)
 {
 	t_dda	*dda;
 
@@ -39,6 +39,7 @@ void	initialize_dda(t_player *player)
 	else
 		dda->y_dist = (dda->y + 1 - player->x / PIXELS) * dda->y_linelength;
 	dda->pl = player;
+	dda->game = game;
 }
 
 void	screen(t_dda *dda)
@@ -50,6 +51,7 @@ void	screen(t_dda *dda)
 	pov = (PI / 3) / W;
 	while (pixels < (W - 1))
 	{
+		dda->i = pixels;
 		travel_through_ray(dda);
 		dda->ray_angle += pov;
 		pixels++;
@@ -65,7 +67,9 @@ bool	reached_wall(t_dda *dda, t_game *game)
 
 void	travel_through_ray(t_dda *dda)
 {
-	while (!reached_wall)
+	t_img	*tex;
+
+	while (!reached_wall(dda, dda->game))
 	{
 		if (dda->x_dist < dda->y_dist)
 		{
@@ -85,14 +89,33 @@ void	travel_through_ray(t_dda *dda)
 	else
 		dda->distance = dda->y_dist - dda->y_linelength;
 	dda->distance *= cos(dda->pl->angle - dda->ray_angle); //corrige ojo de pez
-	check_wall_hit(dda, dda->pl);
+	tex = choose_texture(dda, dda->game);
+	check_wall_hit(dda, dda->pl, tex);
+	calculate_wall_heigth_and_draw(dda, tex);
 }
 
-void	check_wall_hit(t_dda *dda, t_player *player)
+t_img	*choose_texture(t_dda *dda, t_game *g)
 {
-	int		true_distance;
+	if (dda->wall_face == 1) //horizontal wall
+	{
+		if (dda->y_step > 0)
+			return (&g->n);
+		else
+			return (&g->s);
+	}
+	else // vertical wall
+	{
+		if (dda->x_step > 0)
+			return (&g->e);
+		else
+			return (&g->w);
+	}
+}
+
+void	check_wall_hit(t_dda *dda, t_player *player, t_img *tex)
+{
+	double	true_distance;
 	double	wall_hit;
-	int		texture;
 
 	true_distance = dda->distance / cos(dda->pl->angle - dda->ray_angle);
 	if (dda->wall_face == 1)
@@ -101,10 +124,38 @@ void	check_wall_hit(t_dda *dda, t_player *player)
 		wall_hit = dda->pl->y + true_distance * cos(dda->ray_angle);
 	wall_hit /= 64.0;
 	wall_hit -= floor(wall_hit);
-	texture = wall_hit * PIXELS;
+	dda->tex_x = wall_hit * PIXELS;
 	if (dda->wall_face == 0 && dda->ray_angle > PI / 2 && dda->ray_angle < 3 * PI / 2)
-		texture = PIXELS - texture - 1;
+		dda->tex_x = PIXELS - dda->tex_x - 1;
 	if (dda->wall_face == 1 && dda->ray_angle > 0 && dda->ray_angle < PI)
-		texture = PIXELS - texture - 1;
+		dda->tex_x = PIXELS - dda->tex_x - 1;
 }
 
+void	calculate_wall_heigth_and_draw(t_dda *dda, t_img *text)
+{
+	int		wall_height;
+	int		start_y;
+	int		end_y;
+	int		j;
+	char	*dst;
+    int		color;
+
+	wall_height = (1.0 / dda->distance) * W;
+	start_y = (H / 2) - (wall_height / 2); // top of the wall
+	end_y = start_y + wall_height;
+	j = start_y;
+	while (j < end_y)
+	{
+		if (j >= 0 && j < H)
+		{
+			// Compute y coordinate in texture
+			dda->tex_y = (int)((j - start_y) * ((double)PIXELS / wall_height));
+			// Get color from texture
+			dst = text->addr + (dda->tex_y * text->line_len + dda->tex_x * (text->bpp / 8));
+            color = *(unsigned int *)dst;
+			put_pixel(&dda->game->app->frame.img, dda->i, j, color);
+			// Draw it
+		}
+		j++;
+	}
+}
