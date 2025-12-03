@@ -6,7 +6,7 @@
 /*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:41:39 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/12/02 14:31:17 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/12/03 17:21:24 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,47 +49,6 @@ typedef struct s_map
 	int		cols; // Número total de columnas en el mapa.
 }	t_map;
 
-typedef struct s_dda
-{
-	int			x; //Posición en la cuadrícula
-	int			y;
-	double		x_step; // Dirección del paso (izad o dcha)
-	double		y_step; // Dirección del paso (up or down)
-	double		x_dist; // Distancia 1º inicial, después + linelength
-	double		y_dist;
-	double		x_linelength; // Distancia a la siguiente línea vertical
-	double		y_linelength; // Distancia al siguiente paso horizontal
-	double		distance; // Distancia real del jugador al muro sin sumar un cuadradito más
-	int			wall_face; // Qué cara del muro vemos (0 si horizontal, 1 si vertical)
-	double		ray_angle;
-	int			tex_x;
-	int			tex_y;
-	int			i;
-	t_game		*game;
-	
-	struct s_player	*pl;
-}			t_dda;
-
-/**
- * @struct s_player
- * @brief Representa al jugador dentro del mapa.
- * 
- * Esta estructura almacena la posición y orientación inicial del jugador,
- * así como su dirección de mirada y el plano de cámara usado para el cálculo
- * de raycasting.
- */
-typedef struct s_player
-{
-	double	x; /**< Posición X del jugador en coordenadas del mapa. */
-	double	y; /**< Posición Y del jugador en coordenadas del mapa. */
-	char	dir; /**< Dirección inicial (N, S, E, W) tomada del mapa. */
-	double	dir_x; /**< Componente X del vector de dirección. */
-	double	dir_y; /**< Componente Y del vector de dirección. */
-	double	plane_x;/**< Componente X del plano de cámara (raycasting). */
-	double	plane_y;/**< Componente Y del plano de cámara (raycasting). */
-	double	angle; /* Ángulo en radianes */
-	t_dda	dda; /* Campo para dda */
-}	t_player;
 
 
 /**
@@ -136,6 +95,47 @@ typedef struct s_input
 	bool	right;
 }	t_input;
 
+typedef struct s_dda
+{
+	int			x; //Posición en la cuadrícula
+	int			y;
+	double		x_step; // Dirección del paso (izad o dcha)
+	double		y_step; // Dirección del paso (up or down)
+	double		x_dist; // Distancia 1º inicial, después + linelength
+	double		y_dist;
+	double		x_linelength; // Distancia a la siguiente línea vertical
+	double		y_linelength; // Distancia al siguiente paso horizontal
+	double		distance; // Distancia real del jugador al muro sin sumar un cuadradito más
+	int			wall_face; // Qué cara del muro vemos (0 si horizontal, 1 si vertical)
+	double		ray_angle;
+	int			tex_x;
+	int			tex_y;
+	int			i;
+	struct s_game	*game;
+	struct s_player	*pl;
+}			t_dda;
+
+/**
+ * @struct s_player
+ * @brief Representa al jugador dentro del mapa.
+ * 
+ * Esta estructura almacena la posición y orientación inicial del jugador,
+ * así como su dirección de mirada y el plano de cámara usado para el cálculo
+ * de raycasting.
+ */
+typedef struct s_player
+{
+	double	x; /**< Posición X del jugador en coordenadas del mapa. */
+	double	y; /**< Posición Y del jugador en coordenadas del mapa. */
+	char	dir; /**< Dirección inicial (N, S, E, W) tomada del mapa. */
+	double	dir_x; /**< Componente X del vector de dirección. */
+	double	dir_y; /**< Componente Y del vector de dirección. */
+	double	plane_x;/**< Componente X del plano de cámara (raycasting). */
+	double	plane_y;/**< Componente Y del plano de cámara (raycasting). */
+	double	angle; /* Ángulo en radianes */
+	t_dda	dda; /* Campo para dda */
+}	t_player;
+
 /**
  * @struct s_game
  * @brief Estado principal del juego.
@@ -155,6 +155,5 @@ typedef struct s_game
 	t_img		e;
 	t_img		w;
 }	t_game;
-
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   app_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 15:28:55 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/12/01 19:18:14 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/03 20:22:10 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ static void	window_init(t_game *game)
 			&app->frame.line_len, &app->frame.endian);
 
 	draw_background(app);
+	render_images(game);
+	// put_pixel(&app->frame, 101, 100, COLOR_MINIMAP_PLAYER);
+	// put_pixel(&app->frame, 102, 100, COLOR_MINIMAP_PLAYER);
+	// put_pixel(&app->frame, 100, 100, COLOR_MINIMAP_PLAYER);
+	draw_front(&game->player.dda);
 
 	draw_minimap(game); // es parte del bonus
 	draw_player_minimap(game); // es parte del bonus

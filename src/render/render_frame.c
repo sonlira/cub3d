@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_frame.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 19:26:06 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/12/01 20:19:10 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/03 20:29:23 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	render_frame(t_game *game)
 {
 	loop_hook(game);
 	draw_background(game->app);
+	draw_front(&game->player.dda);
 	draw_minimap(game);
 	draw_player_minimap(game);
 	mlx_put_image_to_window(game->app->mlx, game->app->win, game->app->frame.img, 0, 0);

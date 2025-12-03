@@ -6,7 +6,7 @@
 /*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 16:57:21 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/12/02 14:16:31 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/12/03 18:27:08 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,14 @@ void	game_free(t_game *game)
 		config_free(game->cfg);
 	if (game->map)
 		map_free(game->map);
+	if (game->n.img)
+		mlx_destroy_image(game->app->mlx, game->n.img);
+	if (game->s.img)
+		mlx_destroy_image(game->app->mlx, game->s.img);
+	if (game->e.img)
+		mlx_destroy_image(game->app->mlx, game->e.img);
+	if (game->w.img)
+		mlx_destroy_image(game->app->mlx, game->w.img);
 	if (game->app)
 		app_destroy(game->app);
 }

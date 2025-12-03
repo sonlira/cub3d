@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 15:29:13 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/12/01 18:45:32 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/03 18:16:22 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int argc, char **argv)
 
 	game_parser(argc, argv, &game);
 	player_init(game.map, &game.player);
+	initialize_dda(&game.player, &game);
 	app_init(&game);
 	hook(&game);
 	mlx_loop_hook(game.app->mlx, render_frame, &game);

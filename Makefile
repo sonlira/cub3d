@@ -5,7 +5,7 @@
 NAME		= cub3d
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
-CFLAGS		+= -Iinclude -Ilib/libft/include -Ilib/minilibx-linux
+CFLAGS		+= -Iinclude -Ilib/libft/include -Ilib/minilibx-linux -g3
 
 # Directorios
 INC_DIR		= include
@@ -57,7 +57,7 @@ $(NAME): $(MLX_A) $(LIBFT_A) $(OBJS)
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
 	@$(eval INDEX=$(shell echo $$(($(INDEX)+1))))
-	@printf "\r$(CYAN)Compilando [$(INDEX)/$(COUNT)]: $(notdir $<)$(RESET)"
+	@printf "\r$(CYAN)Compilando [$(INDEX)/$(COUNT)]: $(notdir $<)$(RESET)\n"
 	@tput el
 	@$(CC) $(CFLAGS) -c $< -o $@
 
