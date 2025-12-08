@@ -6,36 +6,13 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:46:24 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/09/21 15:06:38 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/07 20:30:22 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #ifndef ENUMS_H
 # define ENUMS_H
-
-
-/**
- * @enum e_key
- * @brief Códigos de teclado usados en el juego.
- * 
- * Asocia las teclas más relevantes para movimiento y control
- * a sus respectivos códigos numéricos (X11/ASCII).
- */
-typedef enum e_key
-{
-	ESC_KEY		= 65307, /**< Tecla ESC (salir o cerrar programa). */
-	KEY_W		= 119, /**< Tecla 'W' (mover hacia adelante / arriba). */
-	KEY_A		= 97, /**< Tecla 'A' (mover hacia la izquierda). */
-	KEY_S		= 115, /**< Tecla 'S' (mover hacia atrás / abajo). */
-	KEY_D		= 100, /**< Tecla 'D' (mover hacia la derecha). */
-
-	KEY_UP		= 65362, /**< Flecha arriba. */
-	KEY_DOWN	= 65364, /**< Flecha abajo. */
-	KEY_LEFT	= 65361, /**< Flecha izquierda. */
-	KEY_RIGHT	= 65363, /**< Flecha derecha. */
-}	t_key;
-
 
 /**
  * @enum e_texture

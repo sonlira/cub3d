@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:04:47 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/12/03 17:31:07 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/12/07 19:49:21 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,17 @@ bool	find_player(char **grid, t_player *player)
 	return (false);
 }
 
-void	player_init(t_map *map, t_player *player)
+void	player_init(t_game *game)
 {
-	ft_bzero(player, sizeof(*player));
-	find_player(map->grid, player);
-	player_init_dir(player);
+	t_player	*pl;
+
+	pl = &game->player;
+	ft_bzero(pl, sizeof(*pl));
+	find_player(game->map->grid, pl);
+	player_init_dir(pl);
 	// El plano siempre depende de la dirección (dir_x, dir_y)
-	player->plane_x = -player->dir_y * FOV_FACTOR;
-	player->plane_y = player->dir_x * FOV_FACTOR;
+	pl->plane_x = -pl->dir_y * FOV_FACTOR;
+	pl->plane_y = pl->dir_x * FOV_FACTOR;
 }
 
 /**	

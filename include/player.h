@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:06:40 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/12/01 18:04:34 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/07 19:51:37 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@
 bool	find_player(char **grid, t_player *player);
 
 /**
- * @brief Inicializa la estructura del jugador `t_player`.
+ * @brief Inicializa la estructura del jugador `t_player` 
+ * de la estructura `t_game`.
  *
+ * @details
  * Esta función prepara al jugador antes de empezar el juego:
  *   1. Limpia la memoria de la estructura con ft_bzero.
  *   2. Busca en el mapa la posición inicial del jugador y el carácter
@@ -40,18 +42,15 @@ bool	find_player(char **grid, t_player *player);
  *   4. Calcula el plano de la cámara (plane_x, plane_y), que siempre es
  *      perpendicular a la dirección, usando el factor de campo de visión.
  *
- * @param map    Puntero al mapa que contiene el grid y la información
- *               del spawn inicial.
- * @param player Puntero a la estructura t_player que será inicializada.
- *
- * @return Nada.
+ * @param game Puntero a la estructura t_game.
  */
-void	player_init(t_map *map, t_player *player);
+void	player_init(t_game *game);
 
 /* ************************************************************************** */
 /*                      FUNCIONES DEL JUGADOR (PLAYER)                        */
 /* ************************************************************************** */
 
+bool	is_wall(t_map *map, int x, int y);
 void	move_forward(t_game *game, double move_speed);
 void	move_behind(t_game *game, double move_speed);
 void	move_right(t_game *game, double move_speed);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   types.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:41:39 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/12/03 17:21:24 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/12/08 19:10:52 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,6 @@ typedef struct s_config
 	int		ceiling_color; // Color del techo empaquetado en formato 0xRRGGBB.
 }	t_config;
 
-typedef struct s_point
-{
-	double	x;
-	double	y;
-}	t_point;
-
 /**
  * @struct s_map
  * @brief Representa el mapa del juego en forma de grilla.
@@ -48,8 +42,6 @@ typedef struct s_map
 	int		rows; // Número total de filas en el mapa.
 	int		cols; // Número total de columnas en el mapa.
 }	t_map;
-
-
 
 /**
  * @struct s_img
@@ -95,25 +87,35 @@ typedef struct s_input
 	bool	right;
 }	t_input;
 
-typedef struct s_dda
+typedef struct s_mmap
 {
-	int			x; //Posición en la cuadrícula
-	int			y;
-	double		x_step; // Dirección del paso (izad o dcha)
-	double		y_step; // Dirección del paso (up or down)
-	double		x_dist; // Distancia 1º inicial, después + linelength
-	double		y_dist;
-	double		x_linelength; // Distancia a la siguiente línea vertical
-	double		y_linelength; // Distancia al siguiente paso horizontal
-	double		distance; // Distancia real del jugador al muro sin sumar un cuadradito más
-	int			wall_face; // Qué cara del muro vemos (0 si horizontal, 1 si vertical)
-	double		ray_angle;
-	int			tex_x;
-	int			tex_y;
-	int			i;
-	struct s_game	*game;
-	struct s_player	*pl;
-}			t_dda;
+	int	x;
+	int	y;
+}	t_mmap;
+
+typedef struct s_ray
+{
+	int		map_x;
+	int		map_y;
+	double	camera_x;
+	double	ray_dir_x;
+	double	ray_dir_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	double	perp_wall_dist;
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
+	t_img	*texture;
+	double	wall_x;
+	int		tex_x;
+}			t_ray;
 
 /**
  * @struct s_player
@@ -133,7 +135,6 @@ typedef struct s_player
 	double	plane_x;/**< Componente X del plano de cámara (raycasting). */
 	double	plane_y;/**< Componente Y del plano de cámara (raycasting). */
 	double	angle; /* Ángulo en radianes */
-	t_dda	dda; /* Campo para dda */
 }	t_player;
 
 /**

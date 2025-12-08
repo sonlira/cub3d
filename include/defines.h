@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:51:58 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/12/01 19:16:33 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/08 18:44:36 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@
 /**
  * @brief Tamaño de celda del minimapa.
  */
-# define SCALE 25
+# define SCALE 10
 
 /**
  * @brief Color de las celdas tipo pared (`1`) del minimapa.
@@ -115,7 +115,7 @@
  * 13158600  // Gris claro
  * 3947580   // Gris oscuro
  */
-# define COLOR_MINIMAP_WALL 11184886
+# define COLOR_W 11184886
 
 /**
  * @brief Color de las celdas tipo suelo/vacío (`0`) del minimapa.
@@ -124,16 +124,7 @@
  * 3281178   // Azul grisáceo oscuro
  * 14408694  // Arena clara
  */
-# define COLOR_MINIMAP_FLOOR 5265224
-
-/**
- * @brief Color del borde de las celdas del minimapa.
- * @example
- * 1315798   // Azul oscuro
- * 1973790   // Gris muy oscuro
- * 0         // Negro
- */
-# define COLOR_MINIMAP_BORDER 1315798
+# define COLOR_F 5265224
 
 /**
  * @brief Color de player en minimapa.
@@ -144,16 +135,29 @@
  * 16764928  // Amarillo
  * 16743168  // Naranja
  */
-# define COLOR_MINIMAP_PLAYER 16724796
+# define COLOR_P 16724796
 
 /**
  * @brief Tamaño de player en minimapa
  * @note Se debe cumplir esta condicíon PLAYER_SCALE < SCALE / 2
  */
-# define PLAYER_SCALE 5
+# define PL_SCALE 3
 
 #define PI 3.14159265358979323846
 
 #define PIXELS 64
+
+/**
+ * @brief Margen de seguridad para la detección de colisiones.
+ * * Se utiliza para evitar que el jugador se "clipee" o se meta en las esquinas.
+ * 0.2 es un valor seguro.
+ */
+# define COLLISION_PADDING 0.2
+
+# define EPSILON 0.0001
+
+# define MOVE_SPEED 0.05
+
+# define ROT_SPEED 0.03
 
 #endif
