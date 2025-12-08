@@ -3,91 +3,71 @@
 /*                                                        :::      ::::::::   */
 /*   draw_minimap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 13:16:51 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/12/03 20:15:15 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/12/08 19:12:12 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	draw_cell_minimap(t_app *app, int mx, int my, int color)
-{
-	int	y;
-	int	x;
-	int	sy;
-	int	sx;
 
-	y = 0;
-	sy = my * SCALE;
-	while (y < SCALE)
+static void	draw_square(t_app *app, t_mmap s, int size, int color)
+{
+	int		initial_sx;
+	t_mmap	offset;
+
+	initial_sx = s.x;
+	offset.y = 0;
+	while (offset.y < size)
 	{
-		x = 0;
-		sx = mx * SCALE;
-		while (x < SCALE)
+		offset.x = 0;
+		while (offset.x < size)
 		{
-			if (y == 0 || y == SCALE - 1 || x == 0 || x == SCALE - 1)
-				put_pixel(&app->frame, sx, sy, COLOR_MINIMAP_BORDER);
-			else
-				put_pixel(&app->frame, sx, sy, color);
-			++sx;
-			++x;
+			put_pixel(&app->frame, initial_sx + offset.x, s.y + offset.y,
+				color);
+			offset.x++;
 		}
-		++sy;
-		++y;
+		offset.y++;
 	}
+}
+
+static void	draw_player(t_app *app, t_mmap cent, int size, int color)
+{
+	t_mmap	start;
+	int		half_size;
+
+	half_size = size / 2;
+	start.x = cent.x - half_size;
+	start.y = cent.y - half_size;
+	draw_square(app, start, size, color);
 }
 
 void	draw_minimap(t_game *game)
 {
-	int		my;
-	int		mx;
+	int		row;
+	int		col;
+	t_mmap	screen;
+	t_mmap	player_center;
 
-	my = 0;
-	while (my < game->map->rows)
+	row = 0;
+	while (row < game->map->rows)
 	{
-		mx = 0;
-		while (mx < game->map->cols)
+		col = 0;
+		while (col < game->map->cols)
 		{
-			if (game->map->grid[my][mx] == MAP_WALL)
-				draw_cell_minimap(game->app, mx, my, COLOR_MINIMAP_WALL);
-			else if (game->map->grid[my][mx] == MAP_EMPTY
-					|| is_valid_spawn_char(game->map->grid[my][mx]))
-				draw_cell_minimap(game->app, mx, my, COLOR_MINIMAP_FLOOR);
-			++mx;
+			screen.x = col * SCALE;
+			screen.y = row * SCALE;
+			if (game->map->grid[row][col] == MAP_WALL)
+				draw_square(game->app, screen, SCALE, COLOR_W);
+			else
+				draw_square(game->app, screen, SCALE, COLOR_F);
+			col++;
 		}
-		++my;
+		row++;
 	}
-}
-
-void	draw_player_minimap(t_game *game)
-{
-	int	py;
-	int	px;
-	int dy;
-	int dx;
-	int	i;
-
-	px = game->player.x * SCALE + SCALE / 2;
-	py = game->player.y * SCALE + SCALE / 2;
-	dy = -1;
-	while (dy <= 1)
-	{
-		dx = -1;
-		while (dx <= 1)
-		{
-			put_pixel(&game->app->frame, px + dx, py + dy, COLOR_MINIMAP_PLAYER);
-			++dx;
-		}
-		++dy;
-	}
-	i = 1;
-	while (i <= SCALE)
-	{
-		int lx = px + game->player.dir_x * i;
-		int ly = py + game->player.dir_y * i;
-		put_pixel(&game->app->frame, lx, ly, COLOR_MINIMAP_WALL);
-		++i;
-	}
+	player_center.x = (int)(game->player.x * SCALE);
+	player_center.y = (int)(game->player.y * SCALE);
+	draw_player(game->app, player_center, PL_SCALE, COLOR_P);
 }

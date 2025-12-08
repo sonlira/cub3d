@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 15:28:55 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/12/08 14:09:15 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/08 19:08:44 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,11 @@ static void	window_init(t_game *game)
 	app->frame.img = mlx_new_image(app->mlx, W, H);
 	app->frame.addr = mlx_get_data_addr(app->frame.img, &app->frame.bpp,
 			&app->frame.line_len, &app->frame.endian);
-	draw_background(game);
+	ft_bzero(app->frame.addr, H * app->frame.line_len);
 	render_images(game);
+	draw_background(game);
 	draw_front(game);
-
-	// draw_minimap(game);
-	// draw_player_minimap(game);
-	// cast_single_ray_minimap(game);
+	draw_minimap(game);
 	mlx_put_image_to_window(app->mlx, app->win, app->frame.img, 0, 0);
 }
 

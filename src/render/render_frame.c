@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 19:26:06 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/12/08 14:30:12 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/08 19:08:11 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 int	render_frame(t_game *game)
 {
 	loop_hook(game);
-	mlx_clear_window(game->app->mlx, game->app->win);
 	draw_background(game);
 	draw_front(game);
-	// draw_minimap(game);
-	// draw_player_minimap(game);
+	draw_minimap(game);
 	mlx_put_image_to_window(game->app->mlx, game->app->win,
 		game->app->frame.img, 0, 0);
 	return (0);
