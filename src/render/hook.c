@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 15:28:50 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/12/01 17:52:40 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/08 14:25:46 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,21 @@ void	hook(t_game *game)
 	mlx_hook(game->app->win, KeyRelease, KeyReleaseMask, key_release, game);
 	mlx_hook(game->app->win, DestroyNotify, StructureNotifyMask, close_hook,
 		game);
+}
+
+int	loop_hook(t_game *game)
+{
+	if (game->input.w)
+		move_forward(game, MOVE_SPEED);
+	if (game->input.s)
+		move_behind(game, MOVE_SPEED);
+	if (game->input.a)
+		move_left(game, MOVE_SPEED);
+	if (game->input.d)
+		move_right(game, MOVE_SPEED);
+	if (game->input.left)
+		rotate_left(game, ROT_SPEED);
+	if (game->input.right)
+		rotate_right(game, ROT_SPEED);
+	return (0);
 }

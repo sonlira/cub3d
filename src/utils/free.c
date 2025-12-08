@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 16:57:21 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/12/03 18:27:08 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/12/08 14:26:57 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,11 @@ static void	app_destroy(t_app *app)
 {
 	if (app->frame.img)
 		mlx_destroy_image(app->mlx, app->frame.img);
-	// if (app->frame.addr)
-	// 	free(app->frame.addr);
 	if (app->win)
 		mlx_destroy_window(app->mlx, app->win);
 	if (app->mlx)
 	{
+		mlx_loop_end(app->mlx);
 		mlx_destroy_display(app->mlx);
 		free(app->mlx);
 	}

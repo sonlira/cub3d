@@ -3,32 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 13:30:49 by bgil-fer          #+#    #+#             */
-/*   Updated: 2025/12/03 18:15:48 by bgil-fer         ###   ########.fr       */
+/*   Updated: 2025/12/07 20:26:12 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+unsigned int	get_texture_pixel(t_img *tex, int x, int y)
+{
+	unsigned int	*bf;
+
+	if (x < 0 || x >= PIXELS || y < 0 || y >= PIXELS)
+		return (0);
+	bf = (unsigned int *)(tex->addr + (y * tex->line_len + x * (tex->bpp / 8)));
+	return (*bf);
+}
+
+static void	charge_texture(void *mlx, t_img *tex, char *path)
+{
+	int	width;
+	int	height;
+
+	width = PIXELS;
+	height = width;
+	tex->img = mlx_xpm_file_to_image(mlx, path, &width, &height);
+	tex->addr = mlx_get_data_addr(tex->img, &tex->bpp, &tex->line_len,
+			&tex->endian);
+
+}
+
 void	render_images(t_game *g)
 {
-	int	w;
-	int	h;
+	void	*mlx;
 
-	w = PIXELS;
-	h = PIXELS;
-	g->n.img = mlx_xpm_file_to_image(g->app->mlx, &g->cfg->textures[0][2], &w, &h);
-	g->n.addr = mlx_get_data_addr(g->n.img, &g->n.bpp, &g->n.line_len,
-		&g->n.endian);
-	g->s.img = mlx_xpm_file_to_image(g->app->mlx, &g->cfg->textures[1][2], &w, &h);
-	g->s.addr = mlx_get_data_addr(g->s.img, &g->s.bpp, &g->s.line_len,
-		&g->s.endian);
-	g->w.img = mlx_xpm_file_to_image(g->app->mlx, &g->cfg->textures[2][2], &w, &h);
-	g->w.addr = mlx_get_data_addr(g->w.img, &g->w.bpp, &g->w.line_len,
-		&g->w.endian);
-	g->e.img = mlx_xpm_file_to_image(g->app->mlx, &g->cfg->textures[3][2], &w, &h);
-	g->e.addr = mlx_get_data_addr(g->e.img, &g->e.bpp, &g->e.line_len,
-		&g->e.endian);
+	mlx = g->app->mlx;
+	charge_texture(mlx, &g->n, &g->cfg->textures[TEX_NO][2]);
+	charge_texture(mlx, &g->s, &g->cfg->textures[TEX_SO][2]);
+	charge_texture(mlx, &g->w, &g->cfg->textures[TEX_WE][2]);
+	charge_texture(mlx, &g->e, &g->cfg->textures[TEX_EA][2]);
 }
