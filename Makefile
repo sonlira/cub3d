@@ -12,6 +12,27 @@ INC_DIR		= include
 OBJ_DIR		= obj
 SRC_DIR		= src
 LIB_DIR		= lib
+PARSER_DIR	= $(SRC_DIR)/parser
+VALIDS_DIR	= $(PARSER_DIR)/validators
+CONFIG_DIR	= $(PARSER_DIR)/config
+CFG_VA_DIR	= $(CONFIG_DIR)/validators
+MAP_DIR		= $(PARSER_DIR)/map
+MAP_VA_DIR	= $(MAP_DIR)/validators
+PLAYER_DIR	= $(SRC_DIR)/player
+RENDER_DIR	= $(SRC_DIR)/render
+UTILS_DIR	= $(SRC_DIR)/utils
+
+# Contenedio de cada directorio sin su extencion
+PARSER		= game_parser
+VALIDS		= args_validator file_validator
+CONFIG		= config_color config_parser config_texture
+CFG_VA		= color_format_validator color_validator config_validator texture_validator
+MAP			= map_format map_parser
+MAP_VA		= chars_validator map_validator player_validator walls_validator
+PLAYER		= player_init player_move player_rotate
+RENDER		= app_init dda dda2 draw_background draw_minimap hook render_frame textures
+UTILS		= error free
+SRC			= main
 
 # Librerías
 LIBFT_DIR	= $(LIB_DIR)/libft
@@ -26,7 +47,18 @@ LIBS 		= -L$(MLX_DIR) -lmlx -L$(LIBFT_DIR) -l42 -lXext -lX11 -lXrender -lm -lbsd
 #                                   SOURCES                                    #
 # **************************************************************************** #
 
-SRCS		= $(shell find $(SRC_DIR) -name "*.c")
+# SRCS		= $(shell find $(SRC_DIR) -name "*.c")
+SRCS		=  $(addsuffix .c, $(addprefix $(PARSER_DIR)/, $(PARSER)))
+SRCS		+= $(addsuffix .c, $(addprefix $(VALIDS_DIR)/, $(VALIDS)))
+SRCS		+= $(addsuffix .c, $(addprefix $(CONFIG_DIR)/, $(CONFIG)))
+SRCS		+= $(addsuffix .c, $(addprefix $(CFG_VA_DIR)/, $(CFG_VA)))
+SRCS		+= $(addsuffix .c, $(addprefix $(MAP_DIR)/, $(MAP)))
+SRCS		+= $(addsuffix .c, $(addprefix $(MAP_VA_DIR)/, $(MAP_VA)))
+SRCS		+= $(addsuffix .c, $(addprefix $(PLAYER_DIR)/, $(PLAYER)))
+SRCS		+= $(addsuffix .c, $(addprefix $(RENDER_DIR)/, $(RENDER)))
+SRCS		+= $(addsuffix .c, $(addprefix $(UTILS_DIR)/, $(UTILS)))
+SRCS		+= $(addsuffix .c, $(addprefix $(SRC_DIR)/, $(SRC)))
+
 OBJS		= $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 COUNT		= $(words $(SRCS))
 INDEX		= 0
