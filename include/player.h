@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:06:40 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/12/07 19:51:37 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:42:03 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ void	player_init(t_game *game);
 bool	is_wall(t_map *map, int x, int y);
 void	move_forward(t_game *game, double move_speed);
 void	move_behind(t_game *game, double move_speed);
-void	move_right(t_game *game, double move_speed);
 void	move_left(t_game *game, double move_speed);
+void	move_right(t_game *game, double move_speed);
 void	rotate_right(t_game *game, double rot_speed);
 void	rotate_left(t_game *game, double rot_speed);
 

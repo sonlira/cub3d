@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   app_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 15:28:55 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/12/08 19:08:44 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:40:12 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ static void	window_init(t_game *game)
 	render_images(game);
 	draw_background(game);
 	draw_front(game);
-	draw_minimap(game);
 	mlx_put_image_to_window(app->mlx, app->win, app->frame.img, 0, 0);
 }
 
