@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   draw_minimap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 13:16:51 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/12/08 19:12:12 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:50:36 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
 
 static void	draw_square(t_app *app, t_mmap s, int size, int color)
 {

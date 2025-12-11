@@ -3,15 +3,68 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 20:59:05 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/30 21:04:03 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/11 18:04:14 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib42.h"
 
+static char	*fill_buffer(int fd, char *buffer, char *store)
+{
+	char	*tmp;
+	ssize_t	read_bytes;
+
+	tmp = NULL;
+	while (1)
+	{
+		read_bytes = read(fd, buffer, BUFFER_SIZE);
+		if (read_bytes < 0)
+			return (free(buffer), NULL);
+		if (read_bytes == 0)
+			break ;
+		buffer[read_bytes] = '\0';
+		if (!store)
+			store = ft_strdup("");
+		tmp = ft_strjoin(store, buffer);
+		free(store);
+		store = tmp;
+		if (ft_strchr(buffer, '\n'))
+			break ;
+	}
+	free(buffer);
+	return (store);
+}
+
+char	*get_next_line(int fd)
+{
+	char		*buffer;
+	static char	*store;
+	char		*line;
+	char		*line_pos;
+
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
+	if (!buffer)
+		return (NULL);
+	line = fill_buffer(fd, buffer, store);
+	if (!line)
+		return (free(store), store = NULL, NULL);
+	line_pos = ft_strchr(line, '\n');
+	if (line_pos && line_pos[1] != '\0')
+	{
+		store = ft_strdup(line_pos + 1);
+		line_pos[1] = '\0';
+	}
+	else
+		store = NULL;
+	return (line);
+}
+
+/*
 static char	*g_store[FD_MAX];
 
 static bool	read_fd_to_store(int fd)
@@ -69,7 +122,7 @@ static char	*extract_line(char **store)
 	ft_strreplace(store, remaining);
 	return (line);
 }
-
+/*
 /**
  * @brief Lee y devuelve una línea del descriptor de archivo especificado.
  *
@@ -90,16 +143,18 @@ static char	*extract_line(char **store)
  * Es necesario llamar a `get_next_line_free(fd)` para limpiar la memoria
  * estática asociada a un descriptor cuando ya no se use.
  */
+/*
 char	*get_next_line(int fd)
 {
 	if (fd < 0 || fd >= FD_MAX || BUFFER_SIZE <= 0)
-		return (NULL);
+	return (NULL);
 	if (!read_fd_to_store(fd))
-		return (NULL);
+	return (NULL);
 	if (!g_store[fd] || !*g_store[fd])
-		return (ft_free_safe((void **)&g_store[fd]), NULL);
+	return (ft_free_safe((void **)&g_store[fd]), NULL);
 	return (extract_line(&g_store[fd]));
 }
+*/
 
 /**
  * @brief Libera la memoria interna asociada a un descriptor de archivo.
@@ -112,9 +167,11 @@ char	*get_next_line(int fd)
  * @param fd Descriptor de archivo cuya memoria asociada debe liberarse.
  *        Si el descriptor no es válido, la función no realiza ninguna acción.
  */
+/*
 void	get_next_line_free(int fd)
 {
 	if (fd < 0 || fd >= FD_MAX)
-		return ;
+	return ;
 	ft_free_safe((void **)&g_store[fd]);
 }
+*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_validator.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 19:05:42 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/03 20:00:51 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:47:13 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ static bool	has_single_player(char **grid)
 		y++;
 	}
 	return (true);
-
 }
 
 bool	is_valid_player(t_map *map)

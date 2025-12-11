@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   dda2.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 17:25:32 by bgil-fer          #+#    #+#             */
-/*   Updated: 2025/12/08 13:50:30 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:49:57 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
 
 void	perp_distance_and_wall_height(t_ray *r)
 {

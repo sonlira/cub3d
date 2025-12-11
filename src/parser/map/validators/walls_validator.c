@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   walls_validator.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 18:48:31 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/31 21:47:20 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:48:09 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,13 @@
 
 static bool	flood_fill(t_map *map, int x, int y, int **visited)
 {
-    // 1. fuera de límites → mapa abierto
 	if (x < 0 || y < 0 || y >= map->rows || x >= map->cols)
-		return false;
-
-	// 2. espacio vacío → mapa abierto
+		return (false);
 	if (map->grid[y][x] == ' ')
 		return (false);
-
-	// 3. muro o ya visitado → OK, no expandir
 	if (map->grid[y][x] == '1' || visited[y][x])
 		return (true);
 	visited[y][x] = true;
-
-    // 4. expandirse en 4 direcciones
 	return (flood_fill(map, (x + 1), y, visited)
 		&& flood_fill(map, (x - 1), y, visited)
 		&& flood_fill(map, x, (y + 1), visited)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:51:58 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/12/08 18:44:36 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:58:48 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,9 +143,9 @@
  */
 # define PL_SCALE 3
 
-#define PI 3.14159265358979323846
+# define PI 3.14159265358979323846
 
-#define PIXELS 64
+# define PIXELS 64
 
 /**
  * @brief Margen de seguridad para la detección de colisiones.

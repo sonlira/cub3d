@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gnl.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/12 16:18:13 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/20 18:19:52 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/11 18:04:32 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,6 @@
  */
 
 char	*get_next_line(int fd);
-void	get_next_line_free(int fd); // # add
+//void	get_next_line_free(int fd); // # add
 
 #endif

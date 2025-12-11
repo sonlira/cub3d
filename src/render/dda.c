@@ -33,9 +33,9 @@ static void	calculate_delta(t_ray *r)
 
 static void	calculate_step_and_side_dist(t_ray *r, t_player *pl)
 {
-	if (r->ray_dir_x < 0) 
+	if (r->ray_dir_x < 0)
 	{
-		r->step_x = -1; 
+		r->step_x = -1;
 		r->side_dist_x = (pl->x - r->map_x) * r->delta_dist_x;
 	}
 	else

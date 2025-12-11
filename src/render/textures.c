@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 13:30:49 by bgil-fer          #+#    #+#             */
-/*   Updated: 2025/12/07 20:26:12 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:51:15 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static void	charge_texture(void *mlx, t_img *tex, char *path)
 	tex->img = mlx_xpm_file_to_image(mlx, path, &width, &height);
 	tex->addr = mlx_get_data_addr(tex->img, &tex->bpp, &tex->line_len,
 			&tex->endian);
-
 }
 
 void	render_images(t_game *g)

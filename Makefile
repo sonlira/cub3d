@@ -89,7 +89,7 @@ $(NAME): $(MLX_A) $(LIBFT_A) $(OBJS)
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
 	@$(eval INDEX=$(shell echo $$(($(INDEX)+1))))
-	@printf "\r$(CYAN)Compilando [$(INDEX)/$(COUNT)]: $(notdir $<)$(RESET)\n"
+	@printf "\r$(CYAN)Compilando [$(INDEX)/$(COUNT)]: $(notdir $<)$(RESET)"
 	@tput el
 	@$(CC) $(CFLAGS) -c $< -o $@
 

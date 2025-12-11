@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   file_validator.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 15:31:08 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/04 13:10:02 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:48:39 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,3 @@ void	require_valid_file(const char *file)
 	if (is_empty_file(file))
 		exit_with_error_message(ERR_FILE_EMPTY);
 }
-

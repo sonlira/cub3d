@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 19:14:31 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/04 12:27:03 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:57:18 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSER_H
 # define PARSER_H
-
 # include "config_parser.h"
 # include "map_parser.h"
 
@@ -144,6 +143,5 @@ bool	is_empty_file(const char *file);
  * @param game  Puntero a la estructura principal del juego que será llenada.
  */
 void	game_parser(int argc, char **argv, t_game *game);
-
 
 #endif

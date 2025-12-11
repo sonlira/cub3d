@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   enums.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:46:24 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/12/07 20:30:22 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:56:46 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef ENUMS_H
 # define ENUMS_H
@@ -27,7 +26,6 @@ typedef enum e_texture
 	TEX_WE, /**< Textura para paredes que miran al Oeste. */
 	TEX_EA, /**< Textura para paredes que miran al Este. */
 }	t_texture;
-
 
 /**
  * @enum e_color

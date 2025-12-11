@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube_utils.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:52:41 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/05 15:40:08 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:56:31 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,3 @@ void	free_game_and_exit(t_game *game, int code);
 void	game_free(t_game *game);
 
 #endif
-

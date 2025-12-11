@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:04:47 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/12/07 19:49:21 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:48:58 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,6 @@ static void	player_set_dir(double x, double y, t_player *player, char dir)
 		player->angle = 3 * PI / 2;
 }
 
-/**
- * @brief Inicializa la dirección del jugador según su spawn en el mapa.
- *
- * Convierte el carácter de spawn leído (N, S, E, W) en un vector unitario
- * que representa la dirección inicial en el plano 2D.
- *
- * Direcciones posibles:
- *   N (Norte) ↑ : ( 0, -1)
- *   S (Sur)   ↓ : ( 0,  1)
- *   E (Este)  → : ( 1,  0)
- *   W (Oeste) ← : (-1,  0)
- *
- * @param player Puntero a la estructura t_player donde se guardará
- *               la dirección inicial (dir_x, dir_y).
- *
- * @return Nada.
- */
 static void	player_init_dir(t_player *player)
 {
 	if (player->dir == MAP_SPAWN_N)
@@ -86,17 +69,6 @@ void	player_init(t_game *game)
 	ft_bzero(pl, sizeof(*pl));
 	find_player(game->map->grid, pl);
 	player_init_dir(pl);
-	// El plano siempre depende de la dirección (dir_x, dir_y)
 	pl->plane_x = -pl->dir_y * FOV_FACTOR;
 	pl->plane_y = pl->dir_x * FOV_FACTOR;
 }
-
-/**	
-Norte
-↑
-↑
-• → → Este → su perpendicular es (0,1) o (0,-1)
-↓
-↓
-Sur
-*/

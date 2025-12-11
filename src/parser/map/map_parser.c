@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parser.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: bgil-fer <bgil-fer@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 19:18:54 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/11/05 14:52:25 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/11 18:05:45 by bgil-fer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ static bool	map_loader(t_map *map, unsigned int fd)
 			line[(ft_strlen(line) - 1)] = '\0';
 		if (!parse_map_line(map, line, &in_map))
 		{
-			get_next_line_free(fd);
 			free(line);
 			return (false);
 		}
