@@ -2,7 +2,7 @@
 #                                   SETTINGS                                   #
 # **************************************************************************** #
 
-NAME		= cub3d
+NAME		= cub3D
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
 CFLAGS		+= -Iinclude -Ilib/libft/include -Ilib/minilibx-linux -g3
