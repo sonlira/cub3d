@@ -6,7 +6,7 @@
 /*   By: abaldelo <abaldelo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 22:07:53 by abaldelo          #+#    #+#             */
-/*   Updated: 2025/10/30 21:47:35 by abaldelo         ###   ########.fr       */
+/*   Updated: 2025/12/26 17:48:58 by abaldelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,9 +124,9 @@ void	ft_free_matrix_safe(void ***matrix, size_t n)
  */
 void	ft_free_matrix(void **matrix, size_t n)
 {
-	if (!matrix || !*matrix)
+	if (!matrix)
 		return ;
-	ft_free_matrix_safe((void ***)&matrix, n);
+	ft_free_matrix_ret(matrix, n);
 }
 
 /**
